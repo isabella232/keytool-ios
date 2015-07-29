@@ -40,7 +40,7 @@ class RootViewController: UIViewController {
     */
 
     private func generateKeys() -> KeyInfo {
-        var mnemonic = NYMnemonic.generateMnemonicString(128, language: "english")
+//        var mnemonic = NYMnemonic.generateMnemonicString(128, language: "english")
         return KeyInfo(mnemonic: "a", publicKey: "b", privateKey: "c")
     }
     

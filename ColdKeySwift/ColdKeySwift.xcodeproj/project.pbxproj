@@ -21,6 +21,11 @@
 		5656EFF11B69831D008A0740 /* KeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656EFEA1B69831D008A0740 /* KeyViewController.swift */; };
 		5656EFF21B69831D008A0740 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656EFEB1B69831D008A0740 /* RootViewController.swift */; };
 		5656EFF31B69831D008A0740 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656EFEB1B69831D008A0740 /* RootViewController.swift */; };
+		5656EFF81B698481008A0740 /* NSObject+bridgingStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 5656EFF71B698481008A0740 /* NSObject+bridgingStub.m */; };
+		5656EFF91B698481008A0740 /* NSObject+bridgingStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 5656EFF71B698481008A0740 /* NSObject+bridgingStub.m */; };
+		5656EFFB1B6984AE008A0740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5656EFFA1B6984AE008A0740 /* UIKit.framework */; };
+		5656EFFD1B6984B3008A0740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5656EFFC1B6984B3008A0740 /* Foundation.framework */; };
+		5656EFFF1B6984B9008A0740 /* libCoreBitcoinIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5656EFFE1B6984B9008A0740 /* libCoreBitcoinIOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,13 @@
 		5656EFE91B69831D008A0740 /* KeyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyInfo.swift; sourceTree = "<group>"; };
 		5656EFEA1B69831D008A0740 /* KeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyViewController.swift; sourceTree = "<group>"; };
 		5656EFEB1B69831D008A0740 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		5656EFF41B698481008A0740 /* ColdKeySwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColdKeySwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		5656EFF51B698481008A0740 /* ColdKeySwiftTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColdKeySwiftTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		5656EFF61B698481008A0740 /* NSObject+bridgingStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+bridgingStub.h"; sourceTree = "<group>"; };
+		5656EFF71B698481008A0740 /* NSObject+bridgingStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+bridgingStub.m"; sourceTree = "<group>"; };
+		5656EFFA1B6984AE008A0740 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5656EFFC1B6984B3008A0740 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5656EFFE1B6984B9008A0740 /* libCoreBitcoinIOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCoreBitcoinIOS.a; path = ../../Libraries/CoreBitcoin/build/libCoreBitcoinIOS.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5656EFFF1B6984B9008A0740 /* libCoreBitcoinIOS.a in Frameworks */,
+				5656EFFD1B6984B3008A0740 /* Foundation.framework in Frameworks */,
+				5656EFFB1B6984AE008A0740 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +112,10 @@
 				5656EFCC1B6982A6008A0740 /* Images.xcassets */,
 				5656EFCE1B6982A6008A0740 /* LaunchScreen.xib */,
 				5656EFC31B6982A6008A0740 /* Supporting Files */,
+				5656EFF61B698481008A0740 /* NSObject+bridgingStub.h */,
+				5656EFF71B698481008A0740 /* NSObject+bridgingStub.m */,
+				5656EFF41B698481008A0740 /* ColdKeySwift-Bridging-Header.h */,
+				5656EFF51B698481008A0740 /* ColdKeySwiftTests-Bridging-Header.h */,
 			);
 			path = ColdKeySwift;
 			sourceTree = "<group>";
@@ -104,6 +123,9 @@
 		5656EFC31B6982A6008A0740 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5656EFFE1B6984B9008A0740 /* libCoreBitcoinIOS.a */,
+				5656EFFC1B6984B3008A0740 /* Foundation.framework */,
+				5656EFFA1B6984AE008A0740 /* UIKit.framework */,
 				5656EFC41B6982A6008A0740 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -230,6 +252,7 @@
 				5656EFF21B69831D008A0740 /* RootViewController.swift in Sources */,
 				5656EFC61B6982A6008A0740 /* AppDelegate.swift in Sources */,
 				5656EFEE1B69831D008A0740 /* KeyInfo.swift in Sources */,
+				5656EFF81B698481008A0740 /* NSObject+bridgingStub.m in Sources */,
 				5656EFF01B69831D008A0740 /* KeyViewController.swift in Sources */,
 				5656EFEC1B69831D008A0740 /* ConfirmViewController.swift in Sources */,
 			);
@@ -242,6 +265,7 @@
 				5656EFF31B69831D008A0740 /* RootViewController.swift in Sources */,
 				5656EFDC1B6982A6008A0740 /* ColdKeySwiftTests.swift in Sources */,
 				5656EFEF1B69831D008A0740 /* KeyInfo.swift in Sources */,
+				5656EFF91B698481008A0740 /* NSObject+bridgingStub.m in Sources */,
 				5656EFF11B69831D008A0740 /* KeyViewController.swift in Sources */,
 				5656EFED1B69831D008A0740 /* ConfirmViewController.swift in Sources */,
 			);
@@ -356,9 +380,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ColdKeySwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/build",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColdKeySwift/ColdKeySwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -366,9 +397,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ColdKeySwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/build",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColdKeySwift/ColdKeySwift-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -376,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -387,6 +425,8 @@
 				INFOPLIST_FILE = ColdKeySwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColdKeySwift/ColdKeySwiftTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColdKeySwift.app/ColdKeySwift";
 			};
 			name = Debug;
@@ -395,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -402,6 +443,7 @@
 				INFOPLIST_FILE = ColdKeySwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColdKeySwift/ColdKeySwiftTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColdKeySwift.app/ColdKeySwift";
 			};
 			name = Release;
@@ -425,6 +467,7 @@
 				5656EFE11B6982A6008A0740 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5656EFE21B6982A6008A0740 /* Build configuration list for PBXNativeTarget "ColdKeySwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +476,7 @@
 				5656EFE41B6982A6008A0740 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
