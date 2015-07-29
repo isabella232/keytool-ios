@@ -1,0 +1,3 @@
+[submodule "Libraries/CoreBitcoin"]
+	path = Libraries/CoreBitcoin
+	url = https://github.com/oleganza/CoreBitcoin.git
