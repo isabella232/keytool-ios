@@ -23,11 +23,6 @@ class RootViewController: UIViewController, KeyInfoManagerDelegate {
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func createNewKey(sender: AnyObject) {
         activityIndicator.startAnimating()
         self.keyInfoManager.generate()
@@ -37,17 +32,8 @@ class RootViewController: UIViewController, KeyInfoManagerDelegate {
     
     @IBAction func startOver(segue: UIStoryboardSegue) {
         println("start over")
+        self.keyInfoManager.reset()
     }
-    
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-    }
-    */
     
     // Mark: - KeyInfoManagerDelegate 
     
@@ -58,7 +44,4 @@ class RootViewController: UIViewController, KeyInfoManagerDelegate {
     func didReset() {
         println("did reset keyinfo")
     }
-    
-    // MARK: - Private Helpers
-
 }

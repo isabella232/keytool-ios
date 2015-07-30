@@ -13,12 +13,9 @@ class QRCodeViewController: UIViewController {
     var keyType: Int = 0
 
     @IBOutlet var titleLabel: UILabel!
-    
     @IBOutlet var qrCodeView: UIImageView!
-    
     @IBOutlet var keyTextView: UITextView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,12 +36,4 @@ class QRCodeViewController: UIViewController {
             self.qrCodeView.image = qr
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    
 }

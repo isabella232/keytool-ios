@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol KeyInfoManagerDelegate {
     func didGenerate()
@@ -47,16 +48,39 @@ class KeyInfoManager: NSObject {
                         delegate.didGenerate()
                     }
                 })
-
             })
         })
-        
     }
     
     func reset() {
         self.keyInfo = KeyInfo(mnemonic: "", publicKey: "", privateKey: "")
+        self.publicKeyQRCode = nil
+        self.privateKeyQRCode = nil
+        self.signingKey = nil
+        
         if let delegate = self.delegate {
             delegate.didReset()
+        }
+    }
+    
+    func postRequest() {
+        if self.signingKey == nil {
+            return
+        }
+        var parameters = [
+            "id": self.signingKey,
+            "xpub": self.keyInfo.publicKey
+        ]
+        var headers = [
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        Alamofire.request(.POST, "http://192.168.0.101:3000/api/v1/coldkey",
+            parameters: parameters,
+            encoding: .JSON,
+            headers: headers)
+            .responseJSON { _, _, JSON, _ in
+                println(JSON)
         }
     }
 }

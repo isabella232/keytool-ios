@@ -48,6 +48,5 @@ class QRCodeHelper: NSObject {
         } else {
             return UIImage()
         }
-        return flippedImage!
     }
 }
