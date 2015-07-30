@@ -4,3 +4,6 @@
 [submodule "Libraries/NYMnemonic"]
 	path = Libraries/NYMnemonic
 	url = https://github.com/nybex/NYMnemonic.git
+[submodule "Libraries/Alamofire"]
+	path = Libraries/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
