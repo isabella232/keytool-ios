@@ -9,9 +9,17 @@
 import UIKit
 
 class KeyInfo: NSObject {
-    let mnemonic: NSString!
-    let publicKey: NSString!
-    let privateKey: NSString!
+    
+    var mnemonic: NSString!
+    var publicKey: NSString!
+    var privateKey: NSString!
+    
+    override init() {
+        self.mnemonic = ""
+        self.publicKey = ""
+        self.privateKey = ""
+        super.init()
+    }
     
     init(mnemonic: NSString, publicKey: NSString, privateKey: NSString) {
         self.mnemonic = mnemonic
@@ -19,20 +27,20 @@ class KeyInfo: NSObject {
         self.privateKey = privateKey
         super.init()
     }
+    
+    init(mnemonic: NSString) {
+        var seedHex = NYMnemonic.deterministicSeedStringFromMnemonicString(
+            mnemonic as String,
+            passphrase: "",
+            language: "english")
+        var seedHexString = seedHex as String
+        var seed: NSData = BTCDataWithHexCString(seedHexString)
+        var keychain: BTCKeychain = BTCKeychain(seed: seed)
+        var publicKey = keychain.extendedPublicKey
+        var privateKey = keychain.extendedPrivateKey
+        self.mnemonic = mnemonic
+        self.publicKey = publicKey
+        self.privateKey = privateKey
+        super.init()
+    }
 }
-
-
-//CKKeyInfo *KeyInfofromMnemonic(NSString *mnemonic)
-//{
-//    NSString *seedHEX = [NYMnemonic deterministicSeedStringFromMnemonicString:mnemonic
-//        passphrase:@""
-//    language:@"english"];
-//    NSData* seed = BTCDataWithHexCString([seedHEX UTF8String]);
-//    
-//    BTCKeychain *keychain = [[BTCKeychain alloc] initWithSeed:seed];
-//    NSString *publicKey = BTCBase58CheckStringWithData([keychain extendedPublicKeyData]);
-//    NSString *privateKey = BTCBase58CheckStringWithData([keychain extendedPrivateKeyData]);
-//    
-//    CKKeyInfo *keyInfo = [[CKKeyInfo alloc] initWithMnemonic:mnemonic publicKey:publicKey privateKey:privateKey];
-//    return keyInfo;
-//}

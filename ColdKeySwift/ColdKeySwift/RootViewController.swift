@@ -8,10 +8,13 @@
 
 import UIKit
 
-class RootViewController: UIViewController {
+class RootViewController: UIViewController, KeyInfoManagerDelegate {
+    
+    var keyInfoManager: KeyInfoManager = KeyInfoManager.sharedManager
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.keyInfoManager.delegate = self
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
         activityIndicator.stopAnimating()
         // Do any additional setup after loading the view.
@@ -26,7 +29,7 @@ class RootViewController: UIViewController {
     
     @IBAction func createNewKey(sender: AnyObject) {
         activityIndicator.startAnimating()
-        self.performSegueWithIdentifier("showKeyViewControllerSegue", sender: self)
+        self.keyInfoManager.generate()
     }
 
     /*
@@ -34,23 +37,23 @@ class RootViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
     }
     */
-
-    private func generateKeys() -> KeyInfo {
-//        var mnemonic = NYMnemonic.generateMnemonicString(128, language: "english")
-        return KeyInfo(mnemonic: "a", publicKey: "b", privateKey: "c")
+    
+    // Mark: - KeyInfoManagerDelegate 
+    
+    func didGenerate() {
+        self.performSegueWithIdentifier("showKeyViewControllerSegue", sender: self)
     }
     
-//    private func generateKeys() ->
-//    
-//    - (CKKeyInfo *)_generateKeys
-//    {
-//    // Generating a mnemonic
-//    NSString *mnemonic = [NYMnemonic generateMnemonicString:@128 language:@"english"];
-//    CKKeyInfo *keyInfo = KeyInfofromMnemonic(mnemonic);
-//    return keyInfo;
-//    }
+    func didReset() {
+        println("did reset keyinfo")
+    }
+    
+    // MARK: - Private Helpers
+
 }

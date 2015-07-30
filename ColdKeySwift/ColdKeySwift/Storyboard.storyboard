@@ -164,6 +164,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mnemonicView" destination="mHc-pK-8hV" id="q6L-Pr-Wo7"/>
                         <segue destination="TUk-Gp-UiT" kind="show" identifier="showConfirmViewControllerSegue" id="NQ3-PG-mSI"/>
                     </connections>
                 </viewController>
@@ -197,7 +198,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="K6x-yz-DRW"/>
-                                    <constraint firstAttribute="height" priority="800" constant="66" id="LOr-Ya-bgT"/>
+                                    <constraint firstAttribute="height" priority="800" constant="66" placeholder="YES" id="LOr-Ya-bgT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -206,7 +207,7 @@
                                 <rect key="frame" x="16" y="139" width="568" height="63"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="RZo-iE-547"/>
+                                    <constraint firstAttribute="height" constant="63" placeholder="YES" id="RZo-iE-547"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="63" id="ebw-78-tJS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -254,6 +255,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mnemonicView" destination="9XK-9D-ABi" id="Y4z-T3-shB"/>
                         <segue destination="PBa-1Q-a8h" kind="show" identifier="showSuccessViewControllerSegue" id="lVA-Fy-yhh"/>
                     </connections>
                 </viewController>

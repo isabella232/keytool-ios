@@ -9,10 +9,13 @@
 import UIKit
 
 class KeyViewController: UIViewController {
-
+    
+    @IBOutlet var mnemonicView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var keyInfoManager = KeyInfoManager.sharedManager
+        mnemonicView.text = keyInfoManager.keyInfo.mnemonic as String
         // Do any additional setup after loading the view.
     }
 

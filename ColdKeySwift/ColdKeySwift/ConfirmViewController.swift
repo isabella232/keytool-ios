@@ -9,11 +9,13 @@
 import UIKit
 
 class ConfirmViewController: UIViewController {
-
+    
+    @IBOutlet var mnemonicView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        var kiManager = KeyInfoManager.sharedManager
+        self.mnemonicView.text = kiManager.keyInfo.mnemonic as String
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,7 +26,6 @@ class ConfirmViewController: UIViewController {
     @IBAction func confirmKey(sender: AnyObject) {
         self.performSegueWithIdentifier("showSuccessViewControllerSegue", sender: self)
     }
-    
     /*
     // MARK: - Navigation
 
