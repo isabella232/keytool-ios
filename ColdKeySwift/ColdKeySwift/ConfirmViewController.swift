@@ -16,6 +16,7 @@ class ConfirmViewController: UIViewController {
         super.viewDidLoad()
         var kiManager = KeyInfoManager.sharedManager
         self.mnemonicView.text = kiManager.keyInfo.mnemonic as String
+        self.navigationItem.hidesBackButton = true
     }
 
     override func didReceiveMemoryWarning() {

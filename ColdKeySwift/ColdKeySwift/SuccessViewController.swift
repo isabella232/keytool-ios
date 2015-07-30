@@ -12,16 +12,30 @@ class SuccessViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func showKey(sender: AnyObject) {
+        self.performSegueWithIdentifier(
+            "showQRCodeViewControllerSegue",
+            sender: sender)
+    }
+    
+    @IBAction func backFromQRCode(segue: UIStoryboardSegue) {
+        println("back from qrcode view")
+    }
+    
+    @IBAction func backFromScan(segue: UIStoryboardSegue) {
+        println("back from scanning")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -31,5 +45,4 @@ class SuccessViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

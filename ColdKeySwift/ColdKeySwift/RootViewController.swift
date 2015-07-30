@@ -17,6 +17,7 @@ class RootViewController: UIViewController, KeyInfoManagerDelegate {
         self.keyInfoManager.delegate = self
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
         activityIndicator.stopAnimating()
+        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
 
@@ -32,9 +33,13 @@ class RootViewController: UIViewController, KeyInfoManagerDelegate {
         self.keyInfoManager.generate()
     }
 
-    /*
     // MARK: - Navigation
-
+    
+    @IBAction func startOver(segue: UIStoryboardSegue) {
+        println("start over")
+    }
+    
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

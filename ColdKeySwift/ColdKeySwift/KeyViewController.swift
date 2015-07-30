@@ -16,6 +16,7 @@ class KeyViewController: UIViewController {
         super.viewDidLoad()
         var keyInfoManager = KeyInfoManager.sharedManager
         mnemonicView.text = keyInfoManager.keyInfo.mnemonic as String
+        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
 
