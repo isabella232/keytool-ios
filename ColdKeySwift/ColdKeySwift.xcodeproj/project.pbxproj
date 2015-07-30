@@ -43,6 +43,7 @@
 		5656F0441B69C6FC008A0740 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656F0421B69C6FC008A0740 /* SuccessViewController.swift */; };
 		569FAA581B6A1E0E00F5AAC3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAA571B6A1E0E00F5AAC3 /* ScanViewController.swift */; };
 		569FAA591B6A1E0E00F5AAC3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAA571B6A1E0E00F5AAC3 /* ScanViewController.swift */; };
+		569FAA5B1B6A33E800F5AAC3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FAA5A1B6A33E800F5AAC3 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		5656F03F1B69C610008A0740 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		5656F0421B69C6FC008A0740 /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		569FAA571B6A1E0E00F5AAC3 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		569FAA5A1B6A33E800F5AAC3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Libraries/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				569FAA5B1B6A33E800F5AAC3 /* Alamofire.framework in Frameworks */,
 				5656F0051B698BC5008A0740 /* AVFoundation.framework in Frameworks */,
 				5656EFFD1B6984B3008A0740 /* Foundation.framework in Frameworks */,
 				5656F0351B69A31B008A0740 /* CoreBitcoin.framework in Frameworks */,
@@ -154,6 +157,7 @@
 		5656EFC31B6982A6008A0740 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				569FAA5A1B6A33E800F5AAC3 /* Alamofire.framework */,
 				5656F0341B69A31B008A0740 /* CoreBitcoin.framework */,
 				5656F0301B69A2C3008A0740 /* languages */,
 				5656F0041B698BC5008A0740 /* AVFoundation.framework */,
@@ -465,6 +469,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ColdKeySwift",
+					"/Users/huangyu/dev/coldkey-swift/Libraries/Alamofire/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = ColdKeySwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -483,6 +488,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ColdKeySwift",
+					"/Users/huangyu/dev/coldkey-swift/Libraries/Alamofire/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = ColdKeySwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

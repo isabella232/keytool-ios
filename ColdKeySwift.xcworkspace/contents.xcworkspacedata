@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Libraries/Alamofire/Alamofire.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Libraries/NYMnemonic/NYMnemonic.xcodeproj">
    </FileRef>
    <FileRef
