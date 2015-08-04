@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var session: AVCaptureSession?
 
@@ -17,6 +17,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     @IBOutlet var noVideoCamLabel: UILabel!
     
     override func viewDidLoad() {
+        self.hidesBackButton = false
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.

@@ -25,12 +25,16 @@ class KeyInfoManager: NSObject {
     
     static let sharedManager = KeyInfoManager()
     
-    func generate() {
+    func generate(mnemonic providedMnemonic: NSString? = nil) {
         
         // generate the new key
         dispatch_async(dispatch_get_main_queue(), {
-            var mnemonic = NYMnemonic.generateMnemonicString(128 as NSNumber, language: "english")
-            self.keyInfo = KeyInfo(mnemonic: mnemonic)
+            if let provided = providedMnemonic {
+                self.keyInfo = KeyInfo(mnemonic: provided)
+            } else {
+                var mnemonic = NYMnemonic.generateMnemonicString(128 as NSNumber, language: "english")
+                self.keyInfo = KeyInfo(mnemonic: mnemonic)
+            }
 
             // generate public key qr code
             dispatch_async(dispatch_get_main_queue(), { () -> Void in

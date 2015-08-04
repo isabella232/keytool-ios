@@ -45,6 +45,10 @@
 		569FAA821B6AA3A600F5AAC3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FAA7B1B6AA35200F5AAC3 /* Alamofire.framework */; };
 		569FAA831B6AA3A600F5AAC3 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 569FAA7B1B6AA35200F5AAC3 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		569FAA871B6AA5BB00F5AAC3 /* CoreBitcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5656F0341B69A31B008A0740 /* CoreBitcoin.framework */; };
+		569FAAA91B706D8100F5AAC3 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAAA81B706D8100F5AAC3 /* RecoverViewController.swift */; };
+		569FAAAA1B706D8100F5AAC3 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAAA81B706D8100F5AAC3 /* RecoverViewController.swift */; };
+		569FAAB01B70793000F5AAC3 /* ColdKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAAAF1B70793000F5AAC3 /* ColdKeyViewController.swift */; };
+		569FAAB11B70793000F5AAC3 /* ColdKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAAAF1B70793000F5AAC3 /* ColdKeyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +138,8 @@
 		5656F0421B69C6FC008A0740 /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		569FAA571B6A1E0E00F5AAC3 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		569FAA731B6AA35200F5AAC3 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../Libraries/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		569FAAA81B706D8100F5AAC3 /* RecoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
+		569FAAAF1B70793000F5AAC3 /* ColdKeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColdKeyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,14 +194,9 @@
 			isa = PBXGroup;
 			children = (
 				5656F03C1B69C079008A0740 /* QRCodeHelper.swift */,
-				5656EFE81B69831D008A0740 /* ConfirmViewController.swift */,
+				569FAAAE1B706D9300F5AAC3 /* Controllers */,
 				5656EFE91B69831D008A0740 /* KeyInfo.swift */,
 				5656F0371B69B67E008A0740 /* KeyInfoManager.swift */,
-				5656EFEA1B69831D008A0740 /* KeyViewController.swift */,
-				5656EFEB1B69831D008A0740 /* RootViewController.swift */,
-				5656F03F1B69C610008A0740 /* QRCodeViewController.swift */,
-				5656F0421B69C6FC008A0740 /* SuccessViewController.swift */,
-				569FAA571B6A1E0E00F5AAC3 /* ScanViewController.swift */,
 				5656EFE51B6982DE008A0740 /* Storyboard.storyboard */,
 				5656EFC51B6982A6008A0740 /* AppDelegate.swift */,
 				5656EFCC1B6982A6008A0740 /* Images.xcassets */,
@@ -262,6 +263,21 @@
 				569FAA811B6AA35200F5AAC3 /* Alamofire OSX Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		569FAAAE1B706D9300F5AAC3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5656EFE81B69831D008A0740 /* ConfirmViewController.swift */,
+				5656EFEA1B69831D008A0740 /* KeyViewController.swift */,
+				5656EFEB1B69831D008A0740 /* RootViewController.swift */,
+				5656F03F1B69C610008A0740 /* QRCodeViewController.swift */,
+				5656F0421B69C6FC008A0740 /* SuccessViewController.swift */,
+				569FAA571B6A1E0E00F5AAC3 /* ScanViewController.swift */,
+				569FAAA81B706D8100F5AAC3 /* RecoverViewController.swift */,
+				569FAAAF1B70793000F5AAC3 /* ColdKeyViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,11 +428,13 @@
 				569FAA581B6A1E0E00F5AAC3 /* ScanViewController.swift in Sources */,
 				5656F03D1B69C079008A0740 /* QRCodeHelper.swift in Sources */,
 				5656EFEE1B69831D008A0740 /* KeyInfo.swift in Sources */,
+				569FAAB01B70793000F5AAC3 /* ColdKeyViewController.swift in Sources */,
 				5656F0381B69B67E008A0740 /* KeyInfoManager.swift in Sources */,
 				5656F0401B69C610008A0740 /* QRCodeViewController.swift in Sources */,
 				5656EFF01B69831D008A0740 /* KeyViewController.swift in Sources */,
 				5656F0431B69C6FC008A0740 /* SuccessViewController.swift in Sources */,
 				5656EFEC1B69831D008A0740 /* ConfirmViewController.swift in Sources */,
+				569FAAA91B706D8100F5AAC3 /* RecoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,11 +448,13 @@
 				569FAA591B6A1E0E00F5AAC3 /* ScanViewController.swift in Sources */,
 				5656F03E1B69C079008A0740 /* QRCodeHelper.swift in Sources */,
 				5656EFEF1B69831D008A0740 /* KeyInfo.swift in Sources */,
+				569FAAB11B70793000F5AAC3 /* ColdKeyViewController.swift in Sources */,
 				5656F0391B69B67E008A0740 /* KeyInfoManager.swift in Sources */,
 				5656F0411B69C610008A0740 /* QRCodeViewController.swift in Sources */,
 				5656EFF11B69831D008A0740 /* KeyViewController.swift in Sources */,
 				5656F0441B69C6FC008A0740 /* SuccessViewController.swift in Sources */,
 				5656EFED1B69831D008A0740 /* ConfirmViewController.swift in Sources */,
+				569FAAAA1B706D8100F5AAC3 /* RecoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

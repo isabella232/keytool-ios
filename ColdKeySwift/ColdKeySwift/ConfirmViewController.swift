@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmViewController: UIViewController {
+class ConfirmViewController: ColdKeyViewController {
     
     @IBOutlet var mnemonicView: UITextView!
     
@@ -16,7 +16,6 @@ class ConfirmViewController: UIViewController {
         super.viewDidLoad()
         var kiManager = KeyInfoManager.sharedManager
         self.mnemonicView.text = kiManager.keyInfo.mnemonic as String
-        self.navigationItem.hidesBackButton = true
     }
     
     @IBAction func confirmKey(sender: AnyObject) {

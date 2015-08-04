@@ -8,13 +8,15 @@
 
 import UIKit
 
-class SuccessViewController: UIViewController {
+class SuccessViewController: ColdKeyViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
+//            style: UIBarButtonItemStyle.Plain,
+//            target: nil, action: nil)
+//        self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
     }
 
     @IBAction func showKey(sender: AnyObject) {

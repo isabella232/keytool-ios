@@ -8,26 +8,31 @@
 
 import UIKit
 
-class RootViewController: UIViewController, KeyInfoManagerDelegate {
+class RootViewController: ColdKeyViewController, KeyInfoManagerDelegate {
     
     var keyInfoManager: KeyInfoManager = KeyInfoManager.sharedManager
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.keyInfoManager.delegate = self
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
         activityIndicator.stopAnimating()
-        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
+//        self.navigationItem.titleView = UIImageView(image: UIImage(named: "logo"))
     }
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func createNewKey(sender: AnyObject) {
+        self.keyInfoManager.delegate = self
         activityIndicator.startAnimating()
         self.keyInfoManager.generate()
     }
 
+    @IBAction func recoverKey(sender: AnyObject) {
+        self.performSegueWithIdentifier("showRecoverViewControllerSegue",
+            sender: self)
+    }
+    
     // MARK: - Navigation
     
     @IBAction func startOver(segue: UIStoryboardSegue) {

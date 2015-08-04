@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QRCodeViewController: UIViewController {
+class QRCodeViewController: ColdKeyViewController {
     
     var keyType: Int = 0
 
@@ -17,6 +17,7 @@ class QRCodeViewController: UIViewController {
     @IBOutlet var keyTextView: UITextView!
 
     override func viewDidLoad() {
+        self.hidesBackButton = false
         super.viewDidLoad()
         
         var kiManager = KeyInfoManager.sharedManager
