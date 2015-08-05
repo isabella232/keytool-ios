@@ -84,6 +84,18 @@ class KeyInfoManager: NSObject {
         var headers = [
             "Content-Type": "application/json; charset=utf-8"
         ]
+        let serverTrustPolicies: [String: ServerTrustPolicy] = [
+            "someserver.withvalidcer.com": .PinCertificates(
+                certificates: ServerTrustPolicy.certificatesInBundle(),
+                validateCertificateChain: true,
+                validateHost: true
+            )
+        ]
+        
+        let manager = Manager(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+        )
         
         Alamofire.request(.POST, "http://10.2.1.61:3000/api/v1/coldkey",
             parameters: parameters,
@@ -99,7 +111,8 @@ class KeyInfoManager: NSObject {
             NSException(
                 name: "Strength must be divisible by 32",
                 reason: "Strength was: \(strength)",
-                userInfo: nil)
+                userInfo: nil
+            )
         }
         
         var bytes = UnsafeMutablePointer<UInt8>.alloc(strength / 8)
@@ -118,11 +131,13 @@ class KeyInfoManager: NSObject {
         let regEx = NSRegularExpression(
             pattern: "[ ]+",
             options: NSRegularExpressionOptions.allZeros,
-            error: nil)
+            error: nil
+        )
         let removeTrailingRegEx = NSRegularExpression(
             pattern: "[ ]+$",
             options: NSRegularExpressionOptions.AnchorsMatchLines,
-            error: nil)
+            error: nil
+        )
         var noTrailingString: String?
         var cleanString: String?
         if regEx != nil && removeTrailingRegEx != nil {
@@ -130,13 +145,15 @@ class KeyInfoManager: NSObject {
                 mnString!,
                 options: NSMatchingOptions.allZeros,
                 range: NSMakeRange(0, count(mnString!)),
-                withTemplate: "")
+                withTemplate: ""
+            )
             if noTrailingString != nil {
                 cleanString = regEx?.stringByReplacingMatchesInString(
                     noTrailingString!,
                     options: NSMatchingOptions.allZeros,
                     range: NSMakeRange(0, count(noTrailingString!)),
-                    withTemplate: " ")
+                    withTemplate: " "
+                )
             }
             if cleanString != nil {
                 return cleanString!

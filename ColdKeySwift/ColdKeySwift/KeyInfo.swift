@@ -37,7 +37,8 @@ class KeyInfo: NSObject {
         self.mnemonic = BTCMnemonic(
             entropy: mnData,
             password: "",
-            wordListType: BTCMnemonicWordListType.English)
+            wordListType: BTCMnemonicWordListType.English
+        )
         if self.mnemonic != nil {
             var keychain = self.mnemonic!.keychain
             var publicKey = keychain.extendedPublicKey
@@ -55,7 +56,8 @@ class KeyInfo: NSObject {
         self.mnemonic = BTCMnemonic(
             words: mnWords,
             password: "",
-            wordListType: BTCMnemonicWordListType.English)
+            wordListType: BTCMnemonicWordListType.English
+        )
         if self.mnemonic != nil {
             var keychain = self.mnemonic!.keychain
             var publicKey = keychain.extendedPublicKey
