@@ -12,11 +12,6 @@ class SuccessViewController: ColdKeyViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
-//            style: UIBarButtonItemStyle.Plain,
-//            target: nil, action: nil)
-//        self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
     }
 
     @IBAction func showKey(sender: AnyObject) {
@@ -31,5 +26,16 @@ class SuccessViewController: ColdKeyViewController {
     
     @IBAction func backFromScan(segue: UIStoryboardSegue) {
         println("back from scanning")
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier != nil && segue.identifier == "showQRCodeViewControllerSegue" {
+            if sender != nil {
+                if let destVC = segue.destinationViewController as? QRCodeViewController {
+                    println(destVC)
+                    destVC.keyType = sender!.tag
+                }
+            }
+        }
     }
 }

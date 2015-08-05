@@ -8,15 +8,19 @@
 
 import UIKit
 
-class KeyViewController: ColdKeyViewController {
+class KeyViewController: ColdKeyViewController, UITextViewDelegate {
     
     @IBOutlet var mnemonicView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var keyInfoManager = KeyInfoManager.sharedManager
-        mnemonicView.text = keyInfoManager.keyInfo.mnemonic as String
+        mnemonicView.text = KeyInfoManager.sharedManager.keyInfo.mnemonicString()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        mnemonicView.updateConstraints()
     }
 
     @IBAction func acceptNewKey(sender: AnyObject) {

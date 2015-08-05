@@ -23,13 +23,13 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.noVideoCamLabel.hidden = true
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         var videoDeivces = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
         
         if videoDeivces.count > 0 {
+            self.noVideoCamLabel.hidden = true
             let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
             let input: AnyObject! = AVCaptureDeviceInput.deviceInputWithDevice(device, error: nil)
             let output = AVCaptureMetadataOutput()
@@ -41,8 +41,9 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
                 output.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
                 
                 var preview = AVCaptureVideoPreviewLayer(session: session)
-                preview.videoGravity = AVLayerVideoGravityResizeAspectFill
                 preview.frame = self.previewView.bounds
+                preview.videoGravity = AVLayerVideoGravityResizeAspectFill
+                
                 
                 preview.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
                 self.previewView.layer.insertSublayer(preview, atIndex: 0)

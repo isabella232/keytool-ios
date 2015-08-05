@@ -10,35 +10,50 @@ import UIKit
 
 class KeyInfo: NSObject {
     
-    var mnemonic: NSString!
+    var mnemonic: BTCMnemonic!
     var publicKey: NSString!
     var privateKey: NSString!
     
+    func mnemonicString() -> String {
+        var array = self.mnemonic.words as! [String]
+        return " ".join(array)
+    }
+    
     override init() {
-        self.mnemonic = ""
+        self.mnemonic = BTCMnemonic()
         self.publicKey = ""
         self.privateKey = ""
         super.init()
     }
     
-    init(mnemonic: NSString, publicKey: NSString, privateKey: NSString) {
+    init(mnemonic: BTCMnemonic!, publicKey: NSString, privateKey: NSString) {
         self.mnemonic = mnemonic
         self.publicKey = publicKey
         self.privateKey = privateKey
         super.init()
     }
     
-    init(mnemonic: NSString) {
-        var seedHex = NYMnemonic.deterministicSeedStringFromMnemonicString(
-            mnemonic as String,
-            passphrase: "",
-            language: "english")
-        var seedHexString = seedHex as String
-        var seed: NSData = BTCDataWithHexCString(seedHexString)
-        var keychain: BTCKeychain = BTCKeychain(seed: seed)
+    init(data mnData: NSData) {
+        self.mnemonic = BTCMnemonic(
+            entropy: mnData,
+            password: "",
+            wordListType: BTCMnemonicWordListType.English)
+        var keychain = self.mnemonic.keychain
         var publicKey = keychain.extendedPublicKey
         var privateKey = keychain.extendedPrivateKey
-        self.mnemonic = mnemonic
+        self.publicKey = publicKey
+        self.privateKey = privateKey
+        super.init()
+    }
+    
+    init(words mnWords: [String]) {
+        self.mnemonic = BTCMnemonic(
+            words: mnWords,
+            password: "",
+            wordListType: BTCMnemonicWordListType.English)
+        var keychain = self.mnemonic.keychain
+        var publicKey = keychain.extendedPublicKey
+        var privateKey = keychain.extendedPrivateKey
         self.publicKey = publicKey
         self.privateKey = privateKey
         super.init()

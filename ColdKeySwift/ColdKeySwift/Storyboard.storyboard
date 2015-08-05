@@ -43,6 +43,12 @@
                                     <action selector="createNewKey:" destination="Igf-oJ-NMf" eventType="touchUpInside" id="OE0-ly-Zrs"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_black" translatesAutoresizingMaskIntoConstraints="NO" id="yXQ-O8-euf">
+                                <rect key="frame" x="16" y="144" width="568" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Xy1-qS-AEF"/>
+                                </constraints>
+                            </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0YN-ZP-y4R">
                                 <rect key="frame" x="290" y="258" width="20" height="20"/>
                             </activityIndicatorView>
@@ -50,11 +56,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TbE-d6-Bf1" firstAttribute="top" secondItem="idm-d4-BNF" secondAttribute="bottom" constant="8" id="3GH-Ae-ONp"/>
+                            <constraint firstItem="yXQ-O8-euf" firstAttribute="top" secondItem="FmN-xG-GO1" secondAttribute="bottom" priority="750" constant="144" id="7b6-Fw-m0b"/>
                             <constraint firstAttribute="centerX" secondItem="0YN-ZP-y4R" secondAttribute="centerX" id="9qc-hq-bMs"/>
+                            <constraint firstItem="yXQ-O8-euf" firstAttribute="leading" secondItem="BaV-1Y-pbJ" secondAttribute="leadingMargin" id="B7a-fn-a6j"/>
+                            <constraint firstItem="yXQ-O8-euf" firstAttribute="trailing" secondItem="BaV-1Y-pbJ" secondAttribute="trailingMargin" id="Edf-gF-cGU"/>
                             <constraint firstAttribute="centerY" secondItem="0YN-ZP-y4R" secondAttribute="centerY" id="H0E-64-Z26"/>
                             <constraint firstItem="LCB-Aq-2Qs" firstAttribute="top" secondItem="TbE-d6-Bf1" secondAttribute="bottom" constant="20" id="Z5O-lT-rrz"/>
                             <constraint firstItem="TbE-d6-Bf1" firstAttribute="trailing" secondItem="BaV-1Y-pbJ" secondAttribute="trailingMargin" id="dKH-yY-scr"/>
                             <constraint firstItem="TbE-d6-Bf1" firstAttribute="leading" secondItem="BaV-1Y-pbJ" secondAttribute="leadingMargin" id="few-Bn-9eT"/>
+                            <constraint firstItem="idm-d4-BNF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yXQ-O8-euf" secondAttribute="bottom" constant="100" id="ieW-LS-02l"/>
+                            <constraint firstAttribute="centerX" secondItem="yXQ-O8-euf" secondAttribute="centerX" id="ket-ZU-SSo"/>
                             <constraint firstItem="idm-d4-BNF" firstAttribute="leading" secondItem="BaV-1Y-pbJ" secondAttribute="leadingMargin" id="l3t-BP-UkG"/>
                             <constraint firstItem="idm-d4-BNF" firstAttribute="trailing" secondItem="BaV-1Y-pbJ" secondAttribute="trailingMargin" id="uAZ-Cw-9JL"/>
                         </constraints>
@@ -117,7 +128,7 @@
                                     <constraint firstAttribute="height" constant="49" id="ngx-Wf-sCK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Write down the above seed phrase and store it safely. It can be used to restore your wallet in the future." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KN8-Ob-dY4">
@@ -142,7 +153,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="predict behave middle region van hybrid night rail wise comic film eye" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-pK-8hV">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="predict behave middle region van hybrid night rail wise comic film eye " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-pK-8hV">
                                 <rect key="frame" x="16" y="65" width="568" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -203,19 +214,9 @@
                                     <constraint firstAttribute="height" constant="49" id="Bku-3P-Gf9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="predict behave middle region van hybrid night rail wise comic film eye" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-9D-ABi">
-                                <rect key="frame" x="16" y="65" width="568" height="66"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="K6x-yz-DRW"/>
-                                    <constraint firstAttribute="height" priority="800" constant="66" placeholder="YES" id="LOr-Ya-bgT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Please enter the seed phrase to confirm you have copied it correctly." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb1-Zy-k3d">
                                 <rect key="frame" x="16" y="139" width="568" height="63"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,6 +255,17 @@
                                     <action selector="confirmKey:" destination="TUk-Gp-UiT" eventType="touchUpInside" id="MaL-W1-2Yy"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-9D-ABi">
+                                <rect key="frame" x="16" y="65" width="568" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="K6x-yz-DRW"/>
+                                    <constraint firstAttribute="height" priority="800" constant="66" placeholder="YES" id="LOr-Ya-bgT"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="81" id="vsV-93-rmF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -275,6 +287,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmButton" destination="pia-2O-Kxl" id="Upi-8I-LwB"/>
                         <outlet property="mnemonicView" destination="9XK-9D-ABi" id="Y4z-T3-shB"/>
                         <segue destination="PBa-1Q-a8h" kind="show" identifier="showSuccessViewControllerSegue" id="lVA-Fy-yhh"/>
                     </connections>
@@ -328,7 +341,7 @@
                                     <constraint firstAttribute="height" constant="49" id="ozW-L5-6Ix"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="You have successfully created a set of public and private keys" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K6-R7-b7S">
@@ -342,22 +355,50 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOn-9k-y57">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOn-9k-y57">
                                 <rect key="frame" x="16" y="121" width="255" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bWY-jo-Tjt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Show Public Key">
                                     <color key="titleColor" red="0.035294117649999998" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bWY-jo-Tjt"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="bWY-jo-Tjt"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="showKey:" destination="PBa-1Q-a8h" eventType="touchUpInside" id="XtP-yi-SaU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DZ-Or-mMe">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DZ-Or-mMe">
                                 <rect key="frame" x="329" y="121" width="255" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bWR-hs-ZMC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Show Private Key">
                                     <color key="titleColor" red="0.035294117649999998" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bWR-hs-ZMC"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="bWR-hs-ZMC"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="showKey:" destination="PBa-1Q-a8h" eventType="touchUpInside" id="DpC-y8-7w8"/>
                                 </connections>
@@ -376,7 +417,7 @@
                             <constraint firstItem="6tS-CV-3Ul" firstAttribute="top" secondItem="4Gh-JT-bYI" secondAttribute="bottom" constant="8" id="bKJ-OG-QLx"/>
                             <constraint firstItem="MUR-3a-A6o" firstAttribute="leading" secondItem="2zC-NV-wwd" secondAttribute="leadingMargin" id="d55-bO-psf"/>
                             <constraint firstItem="0K6-R7-b7S" firstAttribute="trailing" secondItem="2zC-NV-wwd" secondAttribute="trailingMargin" id="eTG-FW-gT4"/>
-                            <constraint firstItem="9DZ-Or-mMe" firstAttribute="leading" secondItem="HOn-9k-y57" secondAttribute="trailing" constant="58" id="kmY-0Q-K1d"/>
+                            <constraint firstItem="9DZ-Or-mMe" firstAttribute="leading" secondItem="HOn-9k-y57" secondAttribute="trailing" constant="60" id="idw-fv-qDd"/>
                             <constraint firstItem="0K6-R7-b7S" firstAttribute="leading" secondItem="2zC-NV-wwd" secondAttribute="leadingMargin" id="lRU-T5-t9p"/>
                             <constraint firstItem="4Gh-JT-bYI" firstAttribute="trailing" secondItem="2zC-NV-wwd" secondAttribute="trailingMargin" id="mhI-wT-8lq"/>
                             <constraint firstItem="MUR-3a-A6o" firstAttribute="top" secondItem="Ha6-wM-3sc" secondAttribute="bottom" constant="8" id="omN-Tf-J2b"/>
@@ -407,10 +448,13 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcU-Oc-SVG">
                                 <rect key="frame" x="16" y="20" width="568" height="496"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="568" id="Xvy-Dv-kdr"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="568" placeholder="YES" id="Xvy-Dv-kdr"/>
                                 </constraints>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="16" y="20" width="768" height="496"/>
+                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Video Cam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sav-IT-Vlc">
                                 <rect key="frame" x="229" y="252" width="142" height="33"/>
@@ -419,7 +463,7 @@
                                     <constraint firstAttribute="width" constant="142" id="XHa-l3-fjm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -460,7 +504,7 @@
                                     <constraint firstAttribute="height" constant="49" id="TzQ-IX-gCy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="xpubaskdfau10938h983hkr9a823ral2893rgaoa87g38w73gakwugkwygkauysekda" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhY-1D-jfz">
@@ -544,10 +588,10 @@
                                     <constraint firstAttribute="height" constant="49" id="XXZ-WQ-yje"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Write down the above seed phrase and store it safely. It can be used to restore your wallet in the future." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5b-5y-wb9">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Write down the above seed phrase and store it safely. It can be used to restore your wallet in the future." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5b-5y-wb9">
                                 <rect key="frame" x="16" y="139" width="568" height="63"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -558,17 +602,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="predict behave middle region van hybrid night rail wise comic film eye" translatesAutoresizingMaskIntoConstraints="NO" id="afW-dF-PCX">
-                                <rect key="frame" x="16" y="65" width="568" height="66"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" priority="800" constant="66" placeholder="YES" id="WHG-11-6zq"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="o7L-c3-g6L"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVw-ar-uUY">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVw-ar-uUY">
                                 <rect key="frame" x="16" y="210" width="568" height="49"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -582,6 +616,17 @@
                                     <action selector="recoverPrivateKey:" destination="2uO-TT-7uD" eventType="touchUpInside" id="caz-rD-wR4"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afW-dF-PCX">
+                                <rect key="frame" x="16" y="65" width="568" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="800" constant="59" placeholder="YES" id="WHG-11-6zq"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="81" id="l9v-kX-mW3"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="o7L-c3-g6L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -609,7 +654,10 @@
             <point key="canvasLocation" x="1160" y="1278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo_black" width="100" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4fL-3k-Y44"/>
+        <segue reference="GKC-4j-4gc"/>
     </inferredMetricsTieBreakers>
 </document>

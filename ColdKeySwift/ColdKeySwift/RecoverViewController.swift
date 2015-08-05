@@ -8,12 +8,12 @@
 
 import UIKit
 
-class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate {
+class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITextViewDelegate {
 
     override func viewDidLoad() {
         self.hidesBackButton = false
         super.viewDidLoad()
-
+        self.mnemonicView.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -29,12 +29,42 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate {
         KeyInfoManager.sharedManager.generate(mnemonic: mnemonicView.text)
     }
     
-    func didGenerate() {
+    func didGenerateKeyInfo() {
         self.performSegueWithIdentifier("showRecoverQRCodeViewControllerSegue", sender: self)
     }
     
-    func didReset() {
+    func didResetKeyInfo() {
         println("did reset keyinfo")
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier != nil && segue.identifier == "showRecoverQRCodeViewControllerSegue" {
+            if let destVC = segue.destinationViewController as? QRCodeViewController {
+                println(destVC)
+                destVC.keyType = 1
+            }
+        }
+    }
+    
+    // MARK: - TextViewDelegate
+    
+//    func textViewDidChange(textView: UITextView) {
+//        var mnString = KeyInfoManager.sharedManager.keyInfo.mnemonicString()
+//        if mnString.hasPrefix(textView.text) {
+//            textView.layer.borderColor = UIColor(red: 9.0, green: 161.0, blue: 217.0, alpha: 1.0).CGColor
+//        } else {
+//            textView.layer.borderColor = UIColor.redColor().CGColor
+//        }
+//    }
+    
+    func textView(
+        textView: UITextView,
+        shouldChangeTextInRange range: NSRange,
+        replacementText text: String) -> Bool {
+            if text == "\n" {
+                textView.resignFirstResponder()
+                return false
+            }
+            return true
+    }
 }

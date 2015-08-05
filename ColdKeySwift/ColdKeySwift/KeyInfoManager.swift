@@ -10,8 +10,8 @@ import UIKit
 import Alamofire
 
 protocol KeyInfoManagerDelegate {
-    func didGenerate()
-    func didReset()
+    func didGenerateKeyInfo()
+    func didResetKeyInfo()
 }
 
 class KeyInfoManager: NSObject {
@@ -27,29 +27,31 @@ class KeyInfoManager: NSObject {
     
     func generate(mnemonic providedMnemonic: NSString? = nil) {
         
+        var width = UIScreen.mainScreen().bounds.width
+        var scale = UIScreen.mainScreen().scale
+        var size = CGSizeMake(width, width)
+        
         // generate the new key
         dispatch_async(dispatch_get_main_queue(), {
-            if let provided = providedMnemonic {
-                self.keyInfo = KeyInfo(mnemonic: provided)
+            if let words = KeyInfoManager.mnemonicArray(providedMnemonic as String?) {
+                self.keyInfo = KeyInfo(words: words)
             } else {
-                var mnemonic = NYMnemonic.generateMnemonicString(128 as NSNumber, language: "english")
-                self.keyInfo = KeyInfo(mnemonic: mnemonic)
+                var mnemonic = self.generateMnemonic(128)
+                self.keyInfo = KeyInfo(data: mnemonic)
             }
 
             // generate public key qr code
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                var cgImage = QRCodeHelper.QRCodeForString(self.keyInfo.publicKey)
-                var uiImage = QRCodeHelper.NonInterpolatedUIImageFromCIImage(cgImage, scale: 3.0)
+                var uiImage = BTCQRCode.imageForString(self.keyInfo.publicKey as String, size: size, scale: scale)
                 self.publicKeyQRCode = uiImage
                 
                 // generate private key qr code
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    var cgImage = QRCodeHelper.QRCodeForString(self.keyInfo.privateKey)
-                    var uiImage = QRCodeHelper.NonInterpolatedUIImageFromCIImage(cgImage, scale: 3.0)
+                    var uiImage = BTCQRCode.imageForString(self.keyInfo.privateKey as String, size: size, scale: scale)
                     self.privateKeyQRCode = uiImage
                     
                     if let delegate = self.delegate {
-                        delegate.didGenerate()
+                        delegate.didGenerateKeyInfo()
                     }
                 })
             })
@@ -57,13 +59,14 @@ class KeyInfoManager: NSObject {
     }
     
     func reset() {
-        self.keyInfo = KeyInfo(mnemonic: "", publicKey: "", privateKey: "")
+        self.keyInfo.mnemonic.clear()
+        self.keyInfo = KeyInfo(mnemonic: BTCMnemonic(), publicKey: "", privateKey: "")
         self.publicKeyQRCode = nil
         self.privateKeyQRCode = nil
         self.signingKey = nil
         
         if let delegate = self.delegate {
-            delegate.didReset()
+            delegate.didResetKeyInfo()
         }
     }
     
@@ -86,5 +89,66 @@ class KeyInfoManager: NSObject {
             .responseJSON { _, _, JSON, _ in
                 println(JSON)
         }
+    }
+    
+    func generateMnemonic(strength: Int, language: String = "english") -> NSData {
+        if strength % 32 != 0 {
+            NSException(
+                name: "Strength must be divisible by 32",
+                reason: "Strength was: \(strength)",
+                userInfo: nil)
+        }
+        
+        var bytes = UnsafeMutablePointer<UInt8>.alloc(strength / 8)
+        var status = SecRandomCopyBytes(kSecRandomDefault, strength / 8, bytes)
+        if status != -1 {
+            return NSData(bytes: bytes, length: strength / 8)
+        } else {
+            return NSData()
+        }
+    }
+    
+    class func safeMnemonicString(string mnString: String?) -> String? {
+        if mnString == nil {
+            return nil
+        }
+        let regEx = NSRegularExpression(
+            pattern: "[ ]+",
+            options: NSRegularExpressionOptions.allZeros,
+            error: nil)
+        let removeTrailingRegEx = NSRegularExpression(
+            pattern: "[ ]+$",
+            options: NSRegularExpressionOptions.AnchorsMatchLines,
+            error: nil)
+        var noTrailingString: String?
+        var cleanString: String?
+        if regEx != nil && removeTrailingRegEx != nil {
+            noTrailingString = removeTrailingRegEx?.stringByReplacingMatchesInString(
+                mnString!,
+                options: NSMatchingOptions.allZeros,
+                range: NSMakeRange(0, count(mnString!)),
+                withTemplate: "")
+            if noTrailingString != nil {
+                cleanString = regEx?.stringByReplacingMatchesInString(
+                    noTrailingString!,
+                    options: NSMatchingOptions.allZeros,
+                    range: NSMakeRange(0, count(noTrailingString!)),
+                    withTemplate: " ")
+            }
+            if cleanString != nil {
+                return cleanString!
+            }
+        }
+        println("cannot return safe mnemonic string!")
+        return nil
+    }
+    
+    class func mnemonicArray(string: String?) -> [String]? {
+        
+        if let safeString = KeyInfoManager.safeMnemonicString(string: string) {
+            println(safeString)
+            return safeString.componentsSeparatedByString(" ")
+        }
+        return nil
     }
 }

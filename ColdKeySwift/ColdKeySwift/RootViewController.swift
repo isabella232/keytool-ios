@@ -15,9 +15,11 @@ class RootViewController: ColdKeyViewController, KeyInfoManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         activityIndicator.stopAnimating()
-        // Do any additional setup after loading the view.
-//        self.navigationItem.titleView = UIImageView(image: UIImage(named: "logo"))
     }
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -42,11 +44,11 @@ class RootViewController: ColdKeyViewController, KeyInfoManagerDelegate {
     
     // Mark: - KeyInfoManagerDelegate 
     
-    func didGenerate() {
+    func didGenerateKeyInfo() {
         self.performSegueWithIdentifier("showKeyViewControllerSegue", sender: self)
     }
     
-    func didReset() {
+    func didResetKeyInfo() {
         println("did reset keyinfo")
     }
 }

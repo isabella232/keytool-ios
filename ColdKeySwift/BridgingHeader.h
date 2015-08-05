@@ -9,10 +9,10 @@
 #ifndef ColdKeySwift_BridgingHeader_h
 #define ColdKeySwift_BridgingHeader_h
 
-
-#import "NYMnemonic.h"
 #import <CoreBitcoin/BTCData.h>
 #import <CoreBitcoin/BTCKeychain.h>
 #import <CoreBitcoin/BTCBase58.h>
+#import <CoreBitcoin/BTCMnemonic.h>
+#import <CoreBitcoin/BTCQRCode.h>
 
 #endif
