@@ -18,7 +18,7 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate {
         super.viewDidLoad()
         self.mnemonicView.delegate = self
         self.mnemonicView.layer.borderWidth = 1.0
-        self.mnemonicView.layer.borderColor = UIColor(red: 9.0, green: 161.0, blue: 217.0, alpha: 1.0).CGColor
+        self.mnemonicView.layer.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0).CGColor
     }
     
     @IBAction func confirmKey(sender: AnyObject) {
@@ -36,7 +36,7 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         var mnString = KeyInfoManager.sharedManager.keyInfo.mnemonicString()
         if mnString.hasPrefix(textView.text) {
-            textView.layer.borderColor = UIColor(red: 9.0, green: 161.0, blue: 217.0, alpha: 1.0).CGColor
+            self.mnemonicView.layer.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0).CGColor
         } else {
             textView.layer.borderColor = UIColor.redColor().CGColor
         }

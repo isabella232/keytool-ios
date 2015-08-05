@@ -32,7 +32,6 @@ class SuccessViewController: ColdKeyViewController {
         if segue.identifier != nil && segue.identifier == "showQRCodeViewControllerSegue" {
             if sender != nil {
                 if let destVC = segue.destinationViewController as? QRCodeViewController {
-                    println(destVC)
                     destVC.keyType = sender!.tag
                 }
             }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITextViewDelegate {
 
@@ -14,6 +15,8 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
         self.hidesBackButton = false
         super.viewDidLoad()
         self.mnemonicView.delegate = self
+        self.mnemonicView.layer.borderWidth = 1.0
+        self.mnemonicView.layer.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0).CGColor
         // Do any additional setup after loading the view.
     }
 
@@ -26,6 +29,12 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
 
     @IBAction func recoverPrivateKey(sender: AnyObject) {
         KeyInfoManager.sharedManager.delegate = self
+        var words = KeyInfoManager.mnemonicArray(mnemonicView.text)
+        if words == nil || words?.count != 12 {
+            return
+        } else if !self.isValid(words!) {
+            return
+        }
         KeyInfoManager.sharedManager.generate(mnemonic: mnemonicView.text)
     }
     
@@ -40,7 +49,6 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier != nil && segue.identifier == "showRecoverQRCodeViewControllerSegue" {
             if let destVC = segue.destinationViewController as? QRCodeViewController {
-                println(destVC)
                 destVC.keyType = 1
             }
         }
@@ -48,14 +56,16 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
     
     // MARK: - TextViewDelegate
     
-//    func textViewDidChange(textView: UITextView) {
-//        var mnString = KeyInfoManager.sharedManager.keyInfo.mnemonicString()
-//        if mnString.hasPrefix(textView.text) {
-//            textView.layer.borderColor = UIColor(red: 9.0, green: 161.0, blue: 217.0, alpha: 1.0).CGColor
-//        } else {
-//            textView.layer.borderColor = UIColor.redColor().CGColor
-//        }
-//    }
+    func textViewDidChange(textView: UITextView) {
+        var words = KeyInfoManager.mnemonicArray(textView.text)
+        if words != nil {
+            if self.isValid(words!) {
+                self.mnemonicView.layer.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0).CGColor
+            } else {
+                mnemonicView.layer.borderColor = UIColor.redColor().CGColor
+            }
+        }
+    }
     
     func textView(
         textView: UITextView,
@@ -67,4 +77,14 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
             }
             return true
     }
+    
+    private func isValid(words: [String]) -> Bool {
+        for word in words {
+            if !contains(KeyInfoManager.wordList, word) {
+                return false
+            }
+        }
+        return true
+    }
 }
+

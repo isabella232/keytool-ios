@@ -10,19 +10,19 @@ import UIKit
 
 class KeyInfo: NSObject {
     
-    var mnemonic: BTCMnemonic!
-    var publicKey: NSString!
-    var privateKey: NSString!
+    var mnemonic: BTCMnemonic?
+    var publicKey: NSString! = ""
+    var privateKey: NSString! = ""
     
     func mnemonicString() -> String {
-        var array = self.mnemonic.words as! [String]
-        return " ".join(array)
+        if self.mnemonic != nil {
+            var array = self.mnemonic!.words as! [String]
+            return " ".join(array)
+        }
+        return ""
     }
     
     override init() {
-        self.mnemonic = BTCMnemonic()
-        self.publicKey = ""
-        self.privateKey = ""
         super.init()
     }
     
@@ -38,11 +38,16 @@ class KeyInfo: NSObject {
             entropy: mnData,
             password: "",
             wordListType: BTCMnemonicWordListType.English)
-        var keychain = self.mnemonic.keychain
-        var publicKey = keychain.extendedPublicKey
-        var privateKey = keychain.extendedPrivateKey
-        self.publicKey = publicKey
-        self.privateKey = privateKey
+        if self.mnemonic != nil {
+            var keychain = self.mnemonic!.keychain
+            var publicKey = keychain.extendedPublicKey
+            var privateKey = keychain.extendedPrivateKey
+            self.publicKey = publicKey
+            self.privateKey = privateKey
+        } else {
+            self.privateKey = "invalid secret phrase"
+            self.publicKey = "invalid secret phrase"
+        }
         super.init()
     }
     
@@ -51,11 +56,16 @@ class KeyInfo: NSObject {
             words: mnWords,
             password: "",
             wordListType: BTCMnemonicWordListType.English)
-        var keychain = self.mnemonic.keychain
-        var publicKey = keychain.extendedPublicKey
-        var privateKey = keychain.extendedPrivateKey
-        self.publicKey = publicKey
-        self.privateKey = privateKey
+        if self.mnemonic != nil {
+            var keychain = self.mnemonic!.keychain
+            var publicKey = keychain.extendedPublicKey
+            var privateKey = keychain.extendedPrivateKey
+            self.publicKey = publicKey
+            self.privateKey = privateKey
+        } else {
+            self.privateKey = "invalid secret phrase"
+            self.publicKey = "invalid secret phrase"
+        }
         super.init()
     }
 }

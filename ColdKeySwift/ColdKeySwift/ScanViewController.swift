@@ -57,7 +57,6 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
         if let session = self.session {
             session.stopRunning()
         }
@@ -79,7 +78,6 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
                 var scannedString = validObject.stringValue
                 self.session?.stopRunning()
                 KeyInfoManager.sharedManager.signingKey = scannedString
-                println(scannedString)
                 KeyInfoManager.sharedManager.postRequest()
             }
         }

@@ -20,6 +20,7 @@ class RootViewController: ColdKeyViewController, KeyInfoManagerDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         activityIndicator.stopAnimating()
+        self.keyInfoManager.reset()
     }
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -39,7 +40,6 @@ class RootViewController: ColdKeyViewController, KeyInfoManagerDelegate {
     
     @IBAction func startOver(segue: UIStoryboardSegue) {
         println("start over")
-        self.keyInfoManager.reset()
     }
     
     // Mark: - KeyInfoManagerDelegate 

@@ -16,11 +16,8 @@ class KeyViewController: ColdKeyViewController, UITextViewDelegate {
         super.viewDidLoad()
         mnemonicView.text = KeyInfoManager.sharedManager.keyInfo.mnemonicString()
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        mnemonicView.updateConstraints()
+        mnemonicView.layer.borderColor = UIColor(red: 9.0, green: 161.0, blue: 217.0, alpha: 1.0).CGColor
+        mnemonicView.layer.borderWidth = 1.0
     }
 
     @IBAction func acceptNewKey(sender: AnyObject) {
