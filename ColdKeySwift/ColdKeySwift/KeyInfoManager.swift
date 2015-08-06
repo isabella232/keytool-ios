@@ -84,18 +84,6 @@ class KeyInfoManager: NSObject {
         var headers = [
             "Content-Type": "application/json; charset=utf-8"
         ]
-        let serverTrustPolicies: [String: ServerTrustPolicy] = [
-            "someserver.withvalidcer.com": .PinCertificates(
-                certificates: ServerTrustPolicy.certificatesInBundle(),
-                validateCertificateChain: true,
-                validateHost: true
-            )
-        ]
-        
-        let manager = Manager(
-            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-        )
         
         Alamofire.request(.POST, "http://10.2.1.61:3000/api/v1/coldkey",
             parameters: parameters,
