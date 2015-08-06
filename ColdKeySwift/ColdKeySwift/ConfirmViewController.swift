@@ -22,6 +22,15 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate {
     }
     
     @IBAction func confirmKey(sender: AnyObject) {
+        
+        ///////should only exists in debug version
+        
+        if self.mnemonicView.text == "!" {
+            self.performSegueWithIdentifier("showSuccessViewControllerSegue", sender: self)
+        }
+        
+        ///////
+        
         if self.mnemonicView.text != KeyInfoManager.sharedManager.keyInfo.mnemonicString() {
             self.mnemonicView.layer.borderColor = UIColor.redColor().CGColor
             return

@@ -85,7 +85,32 @@ class KeyInfoManager: NSObject {
             "Content-Type": "application/json; charset=utf-8"
         ]
         
-        Alamofire.request(.POST, "http://10.2.1.61:3000/api/v1/coldkey",
+            
+        let serverTrustPolicies: [String: ServerTrustPolicy] = [
+            "10.2.1.61": .PinCertificates(
+                certificates: ServerTrustPolicy.certificatesInBundle(),
+                validateCertificateChain: true,
+                validateHost: true
+            ),
+            "192.168.0.101": .DisableEvaluation,
+            "webdev.bitgo.com": .PinCertificates(
+                certificates: ServerTrustPolicy.certificatesInBundle(),
+                validateCertificateChain: true,
+                validateHost: true
+            ),
+            "www.bitgo.com": .PinCertificates(
+                certificates: ServerTrustPolicy.certificatesInBundle(),
+                validateCertificateChain: true,
+                validateHost: true
+            )
+        ]
+        
+        let manager = Alamofire.Manager(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+        )
+        
+        Alamofire.request(.POST, "https://webdev.bitgo.com/api/v1/coldkey",
             parameters: parameters,
             encoding: .JSON,
             headers: headers)
