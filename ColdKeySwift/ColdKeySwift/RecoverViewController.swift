@@ -9,33 +9,53 @@
 import UIKit
 import QuartzCore
 
-class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITextViewDelegate {
+class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITextViewDelegate, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         self.hidesBackButton = false
         super.viewDidLoad()
         self.mnemonicView.delegate = self
-        self.mnemonicView.layer.borderWidth = 1.0
-        self.mnemonicView.layer.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0).CGColor
         // Do any additional setup after loading the view.
     }
-
-    @IBOutlet var mnemonicView: UITextView!
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "keyboardWillShowNotification:",
+            name: UIKeyboardWillShowNotification,
+            object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "keyboardWillHideNotification:",
+            name: UIKeyboardWillHideNotification,
+            object: nil)
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIKeyboardWillShowNotification,
+            object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIKeyboardWillHideNotification,
+            object: nil)
+    }
+    
+    @IBOutlet var mnemonicView: BitGoTextView!
+    @IBOutlet var bottomLayoutConstraint: NSLayoutConstraint!
+    
     @IBAction func recoverPrivateKey(sender: AnyObject) {
         KeyInfoManager.sharedManager.delegate = self
         var words = KeyInfoManager.mnemonicArray(mnemonicView.text)
-        if words == nil || words?.count != 12 {
-            return
-        } else if !self.isValid(words!) {
-            return
+        if let wordArray = words {
+            if wordArray.count > 12 {
+                UIAlertView(type: .TooLong, delegate: self).show()
+            } else if wordArray.count < 12 {
+                UIAlertView(type: .TooShort, delegate: self).show()
+            } else if self.isValid(wordArray) {
+                KeyInfoManager.sharedManager.generate(mnemonic: mnemonicView.text)
+            }
         }
-        KeyInfoManager.sharedManager.generate(mnemonic: mnemonicView.text)
+        return
     }
     
     func didGenerateKeyInfo() {
@@ -60,9 +80,9 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
         var words = KeyInfoManager.mnemonicArray(textView.text)
         if words != nil {
             if self.isValid(words!) {
-                self.mnemonicView.layer.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0).CGColor
+                self.mnemonicView.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0)
             } else {
-                mnemonicView.layer.borderColor = UIColor.redColor().CGColor
+                mnemonicView.borderColor = UIColor.redColor()
             }
         }
     }
@@ -85,6 +105,43 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
             }
         }
         return true
+    }
+    
+    // MARK: - UIAlertViewDelegate Protocol
+    
+    override func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if alertView.title == AlertTitle.TooLong.rawValue || alertView.title == AlertTitle.TooShort.rawValue {
+            self.mnemonicView.becomeFirstResponder()
+        } else {
+            super.alertView(alertView, clickedButtonAtIndex: buttonIndex)
+        }
+    }
+    
+    // MARK: - Notifications
+    
+    func keyboardWillShowNotification(notification: NSNotification) {
+        updateBottomLayoutConstraintWithNotification(notification)
+    }
+    
+    func keyboardWillHideNotification(notification: NSNotification) {
+        updateBottomLayoutConstraintWithNotification(notification)
+    }
+    
+    
+    // MARK: - Private
+    
+    func updateBottomLayoutConstraintWithNotification(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let convertedKeyboardEndFrame = view.convertRect(keyboardEndFrame, fromView: view.window)
+        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).unsignedIntValue << 16
+        let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
+        bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame) + 20 // extra margin
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: .BeginFromCurrentState | animationCurve, animations: {
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
 }
 

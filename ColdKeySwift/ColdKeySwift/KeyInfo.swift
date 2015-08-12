@@ -15,8 +15,8 @@ class KeyInfo: NSObject {
     var privateKey: NSString! = ""
     
     func mnemonicString() -> String {
-        if self.mnemonic != nil {
-            var array = self.mnemonic!.words as! [String]
+        if let mn = self.mnemonic {
+            var array = mn.words as! [String]
             return " ".join(array)
         }
         return ""
@@ -33,41 +33,41 @@ class KeyInfo: NSObject {
         super.init()
     }
     
-    init(data mnData: NSData) {
-        self.mnemonic = BTCMnemonic(
-            entropy: mnData,
-            password: "",
-            wordListType: BTCMnemonicWordListType.English
+    convenience init(data mnData: NSData) {
+        self.init(
+            mnemonic: BTCMnemonic(
+                entropy: mnData,
+                password: "",
+                wordListType: BTCMnemonicWordListType.English
+            )
         )
-        if self.mnemonic != nil {
-            var keychain = self.mnemonic!.keychain
-            var publicKey = keychain.extendedPublicKey
-            var privateKey = keychain.extendedPrivateKey
-            self.publicKey = publicKey
-            self.privateKey = privateKey
-        } else {
-            self.privateKey = "invalid secret phrase"
-            self.publicKey = "invalid secret phrase"
-        }
-        super.init()
     }
     
-    init(words mnWords: [String]) {
-        self.mnemonic = BTCMnemonic(
-            words: mnWords,
-            password: "",
-            wordListType: BTCMnemonicWordListType.English
+    convenience init(words mnWords: [String]) {
+        self.init(
+            mnemonic: BTCMnemonic(
+                words: mnWords,
+                password: "",
+                wordListType: BTCMnemonicWordListType.English
+            )
         )
-        if self.mnemonic != nil {
-            var keychain = self.mnemonic!.keychain
-            var publicKey = keychain.extendedPublicKey
-            var privateKey = keychain.extendedPrivateKey
-            self.publicKey = publicKey
-            self.privateKey = privateKey
+    }
+    
+    convenience init(mnemonic: BTCMnemonic?) {
+        var publicKey: String
+        var privateKey: String
+        if let mn = mnemonic {
+            var keychain = mn.keychain
+            publicKey = keychain.extendedPublicKey
+            privateKey = keychain.extendedPrivateKey
         } else {
-            self.privateKey = "invalid secret phrase"
-            self.publicKey = "invalid secret phrase"
+            publicKey = "Invalid Secret Phrase"
+            privateKey = "Invalid Secret Phrase"
         }
-        super.init()
+        self.init(
+            mnemonic: mnemonic,
+            publicKey: publicKey,
+            privateKey: privateKey
+        )
     }
 }

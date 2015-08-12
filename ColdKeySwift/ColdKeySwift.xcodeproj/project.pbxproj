@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561A8ECD1B794F1200E14465 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A8ECC1B794F1200E14465 /* AlertManager.swift */; };
+		561A8ECE1B794F1200E14465 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A8ECC1B794F1200E14465 /* AlertManager.swift */; };
+		561A8ED01B794F5D00E14465 /* BitGoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A8ECF1B794F5D00E14465 /* BitGoTextView.swift */; };
+		561A8ED11B794F5D00E14465 /* BitGoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A8ECF1B794F5D00E14465 /* BitGoTextView.swift */; };
 		5656EFC61B6982A6008A0740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656EFC51B6982A6008A0740 /* AppDelegate.swift */; };
 		5656EFCD1B6982A6008A0740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5656EFCC1B6982A6008A0740 /* Images.xcassets */; };
 		5656EFD01B6982A6008A0740 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5656EFCE1B6982A6008A0740 /* LaunchScreen.xib */; };
@@ -41,7 +45,6 @@
 		569FAAAA1B706D8100F5AAC3 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAAA81B706D8100F5AAC3 /* RecoverViewController.swift */; };
 		569FAAB01B70793000F5AAC3 /* ColdKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAAAF1B70793000F5AAC3 /* ColdKeyViewController.swift */; };
 		569FAAB11B70793000F5AAC3 /* ColdKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAAAF1B70793000F5AAC3 /* ColdKeyViewController.swift */; };
-		569FAAB61B71645700F5AAC3 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FAAB51B71645700F5AAC3 /* InputTextView.swift */; };
 		569FAABB1B71745900F5AAC3 /* simulatorHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = 569FAABA1B71745900F5AAC3 /* simulatorHelper.c */; };
 		569FAABC1B71745900F5AAC3 /* simulatorHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = 569FAABA1B71745900F5AAC3 /* simulatorHelper.c */; };
 		56DC2B471B727F5300EA0E72 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DC2B461B727F5300EA0E72 /* QuartzCore.framework */; };
@@ -150,6 +153,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		561A8ECC1B794F1200E14465 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = ColdKeySwift/AlertManager.swift; sourceTree = "<group>"; };
+		561A8ECF1B794F5D00E14465 /* BitGoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BitGoTextView.swift; path = ColdKeySwift/BitGoTextView.swift; sourceTree = "<group>"; };
 		5656EFC01B6982A6008A0740 /* ColdKeySwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColdKeySwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5656EFC41B6982A6008A0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5656EFC51B6982A6008A0740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +180,6 @@
 		569FAA731B6AA35200F5AAC3 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../Libraries/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		569FAAA81B706D8100F5AAC3 /* RecoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
 		569FAAAF1B70793000F5AAC3 /* ColdKeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColdKeyViewController.swift; sourceTree = "<group>"; };
-		569FAAB51B71645700F5AAC3 /* InputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		569FAABA1B71745900F5AAC3 /* simulatorHelper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = simulatorHelper.c; sourceTree = "<group>"; };
 		56DC2B461B727F5300EA0E72 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56DC2B4F1B72A44F00EA0E72 /* CoreBitcoin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreBitcoin.xcodeproj; path = ../Libraries/CoreBitcoin/CoreBitcoin.xcodeproj; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		5656EFB71B6982A6008A0740 = {
 			isa = PBXGroup;
 			children = (
+				561A8ECF1B794F5D00E14465 /* BitGoTextView.swift */,
+				561A8ECC1B794F1200E14465 /* AlertManager.swift */,
 				56DC2B4F1B72A44F00EA0E72 /* CoreBitcoin.xcodeproj */,
 				569FAA731B6AA35200F5AAC3 /* Alamofire.xcodeproj */,
 				5656F0271B699CC3008A0740 /* BridgingHeader.h */,
@@ -242,7 +248,6 @@
 				5656EFCC1B6982A6008A0740 /* Images.xcassets */,
 				5656EFCE1B6982A6008A0740 /* LaunchScreen.xib */,
 				5656EFC31B6982A6008A0740 /* Supporting Files */,
-				569FAAB51B71645700F5AAC3 /* InputTextView.swift */,
 			);
 			path = ColdKeySwift;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				TargetAttributes = {
 					5656EFBF1B6982A6008A0740 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 36HK6AMALB;
 					};
 					5656EFD41B6982A6008A0740 = {
 						CreatedOnToolsVersion = 6.4;
@@ -506,6 +512,7 @@
 				5656EFF21B69831D008A0740 /* RootViewController.swift in Sources */,
 				5656EFC61B6982A6008A0740 /* AppDelegate.swift in Sources */,
 				569FAA581B6A1E0E00F5AAC3 /* ScanViewController.swift in Sources */,
+				561A8ED01B794F5D00E14465 /* BitGoTextView.swift in Sources */,
 				5656EFEE1B69831D008A0740 /* KeyInfo.swift in Sources */,
 				569FAABB1B71745900F5AAC3 /* simulatorHelper.c in Sources */,
 				569FAAB01B70793000F5AAC3 /* ColdKeyViewController.swift in Sources */,
@@ -514,7 +521,7 @@
 				5656EFF01B69831D008A0740 /* KeyViewController.swift in Sources */,
 				5656F0431B69C6FC008A0740 /* SuccessViewController.swift in Sources */,
 				5656EFEC1B69831D008A0740 /* ConfirmViewController.swift in Sources */,
-				569FAAB61B71645700F5AAC3 /* InputTextView.swift in Sources */,
+				561A8ECD1B794F1200E14465 /* AlertManager.swift in Sources */,
 				569FAAA91B706D8100F5AAC3 /* RecoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,8 +533,10 @@
 				5656EFF31B69831D008A0740 /* RootViewController.swift in Sources */,
 				5656EFDC1B6982A6008A0740 /* ColdKeySwiftTests.swift in Sources */,
 				569FAA591B6A1E0E00F5AAC3 /* ScanViewController.swift in Sources */,
+				561A8ED11B794F5D00E14465 /* BitGoTextView.swift in Sources */,
 				5656EFEF1B69831D008A0740 /* KeyInfo.swift in Sources */,
 				569FAAB11B70793000F5AAC3 /* ColdKeyViewController.swift in Sources */,
+				561A8ECE1B794F1200E14465 /* AlertManager.swift in Sources */,
 				5656F0391B69B67E008A0740 /* KeyInfoManager.swift in Sources */,
 				5656F0411B69C610008A0740 /* QRCodeViewController.swift in Sources */,
 				5656EFF11B69831D008A0740 /* KeyViewController.swift in Sources */,
@@ -614,6 +623,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/**";
 			};
@@ -660,6 +670,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/**";
 				VALIDATE_PRODUCT = YES;
@@ -670,19 +681,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ColdKeySwift",
 					"/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/binaries/iOS",
 				);
 				INFOPLIST_FILE = ColdKeySwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -690,18 +706,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ColdKeySwift",
 					"/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/binaries/iOS",
 				);
 				INFOPLIST_FILE = ColdKeySwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

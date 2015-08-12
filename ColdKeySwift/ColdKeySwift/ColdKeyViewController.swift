@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColdKeyViewController: UIViewController {
+class ColdKeyViewController: UIViewController, UIAlertViewDelegate {
     
     var hasBackButton: Bool = true
     var hidesBackButton: Bool = true
@@ -16,6 +16,7 @@ class ColdKeyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         if hasBackButton {
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
                 style: UIBarButtonItemStyle.Plain,
@@ -29,12 +30,37 @@ class ColdKeyViewController: UIViewController {
         if hasLogo {
             self.navigationItem.titleView = UIImageView(image: UIImage(named: "logo"))
         }
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: Selector("didTakeScreenshot"),
+            name: UIApplicationUserDidTakeScreenshotNotification,
+            object: nil
+        )
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func didTakeScreenshot() {
+        println("did take screenshot")
+        UIAlertView(type: .TakeScreenshot, delegate: self).show()
+    }
+    
+    // MARK: - UIAlertViewDelegate
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if alertView.title == AlertTitle.Warning.rawValue {
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
 }

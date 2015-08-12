@@ -8,19 +8,43 @@
 
 import UIKit
 
-class KeyViewController: ColdKeyViewController, UITextViewDelegate {
+class KeyViewController: ColdKeyViewController, UITextViewDelegate, UIAlertViewDelegate {
     
-    @IBOutlet var mnemonicView: UITextView!
+    @IBOutlet var mnemonicView: BitGoTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mnemonicView.text = KeyInfoManager.sharedManager.keyInfo.mnemonicString()
         // Do any additional setup after loading the view.
-        mnemonicView.layer.borderColor = UIColor(red: 9.0, green: 161.0, blue: 217.0, alpha: 1.0).CGColor
-        mnemonicView.layer.borderWidth = 1.0
     }
 
     @IBAction func acceptNewKey(sender: AnyObject) {
-        self.performSegueWithIdentifier("showConfirmViewControllerSegue", sender: self)
+        UIAlertView(type: .Accept, delegate: self).show()
+    }
+    
+    // MARK: - UIAlertViewDelegate
+    
+    @IBAction func pressStartOver(sender: AnyObject) {
+        UIAlertView(type: .StartOver, delegate: self).show()
+    }
+    
+    override func alertView(
+        alertView: UIAlertView,
+        clickedButtonAtIndex buttonIndex: Int)
+    {        
+        if alertView.title == AlertTitle.StartOver.rawValue {
+            if buttonIndex == 1 {
+                self.performSegueWithIdentifier(
+                    "backToRootViewControllerFromKeySegue",
+                    sender: self
+                )
+            }
+        } else if alertView.title == AlertTitle.Accept.rawValue {
+            if buttonIndex == 1 {
+                self.performSegueWithIdentifier("showConfirmViewControllerSegue", sender: self)
+            }
+        } else {
+            super.alertView(alertView, clickedButtonAtIndex: buttonIndex)
+        }
     }
 }

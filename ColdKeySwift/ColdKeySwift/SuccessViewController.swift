@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuccessViewController: ColdKeyViewController {
+class SuccessViewController: ColdKeyViewController, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,10 @@ class SuccessViewController: ColdKeyViewController {
         println("back from scanning")
     }
     
+    @IBAction func pressStartOver(sender: AnyObject) {
+        UIAlertView(type: .StartOver, delegate: self).show()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier != nil && segue.identifier == "showQRCodeViewControllerSegue" {
             if sender != nil {
@@ -35,6 +39,24 @@ class SuccessViewController: ColdKeyViewController {
                     destVC.keyType = sender!.tag
                 }
             }
+        }
+    }
+    
+    // MARK: - UIAlertViewDelegate
+    
+    override func alertView(
+        alertView: UIAlertView,
+        clickedButtonAtIndex buttonIndex: Int)
+    {
+        if alertView.title == AlertTitle.StartOver.rawValue {
+            if buttonIndex == 1 {
+                self.performSegueWithIdentifier(
+                    "backToRootViewControllerFromSuccessSegue",
+                    sender: self
+                )
+            }
+        } else {
+            super.alertView(alertView, clickedButtonAtIndex: buttonIndex)
         }
     }
 }

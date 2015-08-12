@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class InputTextView: UITextView {
+class BitGoTextView: UITextView {
 
     @IBInspectable var borderWidth: CGFloat = 0 {
         didSet {
@@ -20,13 +20,5 @@ class InputTextView: UITextView {
         didSet {
             layer.borderColor = borderColor?.CGColor
         }
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: textContainer)
     }
 }

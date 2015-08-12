@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate {
     
     var session: AVCaptureSession?
 
@@ -78,8 +78,23 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
                 var scannedString = validObject.stringValue
                 self.session?.stopRunning()
                 KeyInfoManager.sharedManager.signingKey = scannedString
-                KeyInfoManager.sharedManager.postRequest()
+                KeyInfoManager.sharedManager.postRequest({ (result, JSON, error) -> () in
+                    if result {
+                        UIAlertView(type: .PairingSucceeded, delegate: self).show()
+                    } else {
+                        UIAlertView(type: .PairingFailed, delegate: self).show()
+                    }
+                })
             }
         }
+    }
+    
+    // MARK: - UIAlertViewDelegate
+    
+    override func alertView(
+        alertView: UIAlertView,
+        clickedButtonAtIndex buttonIndex: Int)
+    {
+        self.performSegueWithIdentifier("backFromScanViewControllerSegue", sender: self)
     }
 }
