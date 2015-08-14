@@ -12,7 +12,7 @@ public enum AlertTitle: String {
     case Warning = "Warning"
     case StartOver = "Start Over"
     case Accept = "Accept"
-    case IncorrectSeed = "Incorrect Seed"
+    case IncorrectSeed = "Incorrect Seed Phrase"
     case TooShort = "Too Short"
     case TooLong = "Too Long"
     case PairingSucceeded = "Pairing Succeeded"
@@ -21,9 +21,9 @@ public enum AlertTitle: String {
 
 public enum AlertMessage: String {
     case Screenshot = "Taking a screenhost compromises the security of this key since other apps may access photos on your device."
-    case StartOver = "Are you sure you want to discard this seed phrase and start over?"
-    case Accept = "Have you copied the seed phrase? The next screen will ask you to re-enter it."
-    case IncorrectSeed = "The seed you entered does not match the seed we provided you. Please recheck what you've written down and try again"
+    case StartOver = "Are you sure you want to discard your progress and start over?"
+    case Accept = "The next step will require you to re-enter this seed phrase. Please ensure you have copied it down accurately."
+    case IncorrectSeed = "The seed phrase you entered does not match. Please be sure you've entered it exactly."
     case TooShort = "The seed phrase you entered is too short. Please try again."
     case TooLong = "The seed phrase you entered is too long. Please try again."
     case PairingSucceeded = "These keys have been successfully paired with your BitGo wallet"
@@ -41,6 +41,10 @@ public enum OtherButtonTitle: String {
     case Yes = "Yes"
 }
 
+class AlertManager {
+    static let sharedManager = AlertManager()
+    var alertView: UIAlertView? = nil
+}
 
 extension UIAlertView {
     convenience init(
@@ -57,6 +61,8 @@ extension UIAlertView {
             cancelButtonTitle: cancelButtonTitle?.rawValue,
             otherButtonTitles: otherButtonTitle.rawValue
         )
+        AlertManager.sharedManager.alertView?.dismissWithClickedButtonIndex(0, animated: false)
+        AlertManager.sharedManager.alertView = self
     }
 }
 

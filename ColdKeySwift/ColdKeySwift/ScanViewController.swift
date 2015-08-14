@@ -23,6 +23,11 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.noVideoCamLabel.hidden = true
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         

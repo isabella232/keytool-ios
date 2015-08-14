@@ -19,6 +19,12 @@ class KeyInfoManager: NSObject {
     private(set) var publicKeyQRCode: UIImage?
     private(set) var privateKeyQRCode: UIImage?
     
+    #if DEBUG
+    static let URLString = "https://webdev.bitgo.com/api/v1/coldkey"
+    #else
+    static let URLString = "https://www.bitgo.com/api/v1/coldkey"
+    #endif
+    
     var signingKey: NSString?
     
     var delegate: KeyInfoManagerDelegate?
@@ -104,7 +110,7 @@ class KeyInfoManager: NSObject {
         
         Alamofire.request(
             .POST,
-            "https://webdev.bitgo.com/api/v1/coldkey",
+            KeyInfoManager.URLString,
             parameters: parameters,
             encoding: .JSON,
             headers: headers
