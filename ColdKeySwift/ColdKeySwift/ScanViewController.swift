@@ -80,16 +80,34 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         for current in metadataObjects {
             if let validObject = current as? AVMetadataMachineReadableCodeObject {
-                var scannedString = validObject.stringValue
                 self.session?.stopRunning()
-                KeyInfoManager.sharedManager.signingKey = scannedString
-                KeyInfoManager.sharedManager.postRequest({ (result, JSON, error) -> () in
-                    if result {
-                        UIAlertView(type: .PairingSucceeded, delegate: self).show()
-                    } else {
+                var jsonError: NSError?
+                if let
+                    scannedData = validObject.stringValue.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false),
+                    json = NSJSONSerialization.JSONObjectWithData(scannedData, options: nil, error: &jsonError) as? [String:AnyObject]
+                {
+                    let secret = json["s"] as? String ?? ""
+                    let server = json["e"] as? String ?? "dev"
+                    let version = json["v"] as? Int ?? 0
+                    
+                    if version != KeyInfoManager.qrCodeVersion {
                         UIAlertView(type: .PairingFailed, delegate: self).show()
+                        break
                     }
-                })
+
+                    let baseUrl: KeyInfoBaseUrl = KeyInfoBaseUrl(rawValue: server) ?? .Dev
+                    KeyInfoManager.sharedManager.baseUrl = baseUrl
+                    KeyInfoManager.sharedManager.signingKey = secret
+                    KeyInfoManager.sharedManager.postRequest({ (result, JSON, error) -> () in
+                        if result {
+                            UIAlertView(type: .PairingSucceeded, delegate: self).show()
+                        } else {
+                            UIAlertView(type: .PairingFailed, delegate: self).show()
+                        }
+                    })
+                } else {
+                    UIAlertView(type: .PairingFailed, delegate: self).show()
+                }
             }
         }
     }

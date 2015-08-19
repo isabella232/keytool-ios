@@ -14,18 +14,31 @@ protocol KeyInfoManagerDelegate {
     func didResetKeyInfo()
 }
 
+enum KeyInfoBaseUrl: String {
+    case Dev = "webdev"
+    case Prod = "www"
+    case Test = "test"
+    case Staging = "staging"
+    case Local = "local"
+    
+    var urlString: String {
+        if self == .Local {
+            return "https://webdev.bitgo.com/api/v1/coldkey" // redirect to webdev, since it is sync with local db
+        }
+        return "https://\(self.rawValue).bitgo.com/api/v1/coldkey"
+    }
+}
+
 class KeyInfoManager: NSObject {
     private(set) var keyInfo: KeyInfo = KeyInfo()
     private(set) var publicKeyQRCode: UIImage?
     private(set) var privateKeyQRCode: UIImage?
     
-    #if DEBUG
+    static let qrCodeVersion = 1
     static let URLString = "https://webdev.bitgo.com/api/v1/coldkey"
-    #else
-    static let URLString = "https://www.bitgo.com/api/v1/coldkey"
-    #endif
     
     var signingKey: NSString?
+    var baseUrl: KeyInfoBaseUrl = .Dev
     
     var delegate: KeyInfoManagerDelegate?
     
@@ -107,15 +120,14 @@ class KeyInfoManager: NSObject {
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
             serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
         )
-        
         Alamofire.request(
             .POST,
-            KeyInfoManager.URLString,
+            baseUrl.urlString,
             parameters: parameters,
             encoding: .JSON,
             headers: headers
         ).responseJSON { _, _, JSON, err in
-            println(JSON)
+//            println(JSON)
             if let json = JSON as? [String:String] {
                 completionHandler(true, json, nil)
             } else {

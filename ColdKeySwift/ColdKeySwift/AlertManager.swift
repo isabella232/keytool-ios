@@ -41,7 +41,7 @@ public enum OtherButtonTitle: String {
     case Yes = "Yes"
 }
 
-class AlertManager {
+class AlertManager: NSObject {
     static let sharedManager = AlertManager()
     var alertView: UIAlertView? = nil
 }
