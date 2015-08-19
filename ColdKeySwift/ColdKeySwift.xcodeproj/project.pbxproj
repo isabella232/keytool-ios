@@ -634,7 +634,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/**";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../coldkey-swift/Libraries/CoreBitcoin/**";
 			};
 			name = Debug;
 		};
@@ -683,7 +683,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
 				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/**";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../coldkey-swift/Libraries/CoreBitcoin/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -699,7 +699,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ColdKeySwift",
-					"/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/binaries/iOS",
+					"$(PROJECT_DIR)/../../coldkey-swift/Libraries/CoreBitcoin/binaries/iOS",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = ColdKeySwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -724,7 +728,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ColdKeySwift",
-					"/Users/huangyu/dev/coldkey-swift/Libraries/CoreBitcoin/binaries/iOS",
+					"$(PROJECT_DIR)/../../coldkey-swift/Libraries/CoreBitcoin/binaries/iOS",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = ColdKeySwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
