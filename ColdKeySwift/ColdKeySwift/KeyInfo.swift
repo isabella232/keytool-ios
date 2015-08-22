@@ -61,8 +61,8 @@ class KeyInfo: NSObject {
             publicKey = keychain.extendedPublicKey
             privateKey = keychain.extendedPrivateKey
         } else {
-            publicKey = "Invalid Secret Phrase"
-            privateKey = "Invalid Secret Phrase"
+            publicKey = "Invalid Key Recovery Phrase"
+            privateKey = "Invalid Key Recovery Phrase"
         }
         self.init(
             mnemonic: mnemonic,

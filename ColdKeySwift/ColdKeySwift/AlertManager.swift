@@ -8,11 +8,29 @@
 
 import UIKit
 
+public protocol SharingActivityMessage {
+    var shareMessage: String { get }
+}
+
+public enum SharingActivity: SharingActivityMessage {
+    case GenerateXPub(xpub: String)
+    
+    
+    public var shareMessage: String {
+        switch self {
+        case .GenerateXPub(let xpub):
+            return "I just generated a new Bitcoin key using BitGo KeyTool: \(xpub)"
+        default:
+            return "I just generated a new Bitcoin key using Bitgo KeyTool"
+        }
+    }
+}
+
 public enum AlertTitle: String {
     case Warning = "Warning"
     case StartOver = "Start Over"
-    case Accept = "Accept"
-    case IncorrectSeed = "Incorrect Seed Phrase"
+    case Accept = "Did You Write It Down?"
+    case IncorrectPhrase = "Incorrect Phrase"
     case TooShort = "Too Short"
     case TooLong = "Too Long"
     case PairingSucceeded = "Pairing Succeeded"
@@ -22,11 +40,11 @@ public enum AlertTitle: String {
 public enum AlertMessage: String {
     case Screenshot = "Taking a screenhost compromises the security of this key since other apps may access photos on your device."
     case StartOver = "Are you sure you want to discard your progress and start over?"
-    case Accept = "The next step will require you to re-enter this seed phrase. Please ensure you have copied it down accurately."
-    case IncorrectSeed = "The seed phrase you entered does not match. Please be sure you've entered it exactly."
-    case TooShort = "The seed phrase you entered is too short. Please try again."
-    case TooLong = "The seed phrase you entered is too long. Please try again."
-    case PairingSucceeded = "These keys have been successfully paired with your BitGo wallet"
+    case Accept = "The next step will require you to re-enter this phrase. Please ensure you have copied it down accurately."
+    case IncorrectPhrase = "The key recovery phrase you entered does not match. Please be sure you've entered it exactly."
+    case TooShort = "The key recovery phrase you entered is too short. Please try again."
+    case TooLong = "The key recovery phrase you entered is too long. Please try again."
+    case PairingSucceeded = "Your key has been successfully paired with your BitGo wallet"
     case PairingFailed = "Something went wrong. Please try again."
 }
 
@@ -73,7 +91,7 @@ public enum AlertType {
     PairingFailed,
     TooShort,
     TooLong,
-    IncorrectSeed,
+    IncorrectPhrase,
     Accept,
     StartOver
 }
@@ -122,10 +140,10 @@ extension UIAlertView {
                 otherButtonTitle: .OK,
                 delegate: delegate
             )
-        case .IncorrectSeed:
+        case .IncorrectPhrase:
             self.init(
-                title: .IncorrectSeed,
-                message: .IncorrectSeed,
+                title: .IncorrectPhrase,
+                message: .IncorrectPhrase,
                 cancelButtonTitle: nil,
                 otherButtonTitle: .OK,
                 delegate: delegate

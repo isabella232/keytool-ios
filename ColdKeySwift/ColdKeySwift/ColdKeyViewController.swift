@@ -13,6 +13,7 @@ class ColdKeyViewController: UIViewController, UIAlertViewDelegate {
     var hasBackButton: Bool = true
     var hidesBackButton: Bool = true
     var hasLogo: Bool = true
+    var noScreenshot: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,29 +27,34 @@ class ColdKeyViewController: UIViewController, UIAlertViewDelegate {
         if hidesBackButton {
             self.navigationItem.hidesBackButton = true
         }
-        
         if hasLogo {
-            self.navigationItem.titleView = UIImageView(image: UIImage(named: "logo"))
+            self.navigationItem.titleView = UIImageView(image: UIImage(named: "shield_logo_white"))
         }
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector: Selector("didTakeScreenshot"),
-            name: UIApplicationUserDidTakeScreenshotNotification,
-            object: nil
-        )
+        if noScreenshot {
+            NSNotificationCenter.defaultCenter().addObserver(
+                self,
+                selector: Selector("didTakeScreenshot"),
+                name: UIApplicationUserDidTakeScreenshotNotification,
+                object: nil
+            )
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        if noScreenshot {
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+        }
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        if noScreenshot {
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+        }
     }
     
     func didTakeScreenshot() {

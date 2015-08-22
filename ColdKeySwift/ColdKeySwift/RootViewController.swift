@@ -14,20 +14,34 @@ class RootViewController: ColdKeyViewController, KeyInfoManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        noScreenshot = false
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         activityIndicator.stopAnimating()
+        activityLabel.hidden = true
+        descriptionLabel.hidden = false
         self.keyInfoManager.reset()
+        self.createKeyButton.enabled = true
+        self.recoverKeyButton.enabled = true
     }
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var activityLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var createKeyButton: UIButton!
+    @IBOutlet var recoverKeyButton: UIButton!
     
     @IBAction func createNewKey(sender: AnyObject) {
         self.keyInfoManager.delegate = self
         activityIndicator.startAnimating()
+        activityIndicator.hidden = false
+        descriptionLabel.hidden = true
+        activityLabel.text = "Gathering randomness..."
+        activityLabel.hidden = false
+        self.createKeyButton.enabled = false
+        self.recoverKeyButton.enabled = false
         self.keyInfoManager.generate()
     }
 
@@ -45,7 +59,15 @@ class RootViewController: ColdKeyViewController, KeyInfoManagerDelegate {
     // Mark: - KeyInfoManagerDelegate 
     
     func didGenerateKeyInfo() {
-        self.performSegueWithIdentifier("showKeyViewControllerSegue", sender: self)
+        var msecs: UInt64 = 1000
+        var delay = dispatch_time(DISPATCH_TIME_NOW, Int64(msecs * NSEC_PER_MSEC))
+        dispatch_after(delay, dispatch_get_main_queue()) { () -> Void in
+            self.activityLabel.text = "Generating key..."
+            var delay = dispatch_time(DISPATCH_TIME_NOW, Int64(msecs * NSEC_PER_MSEC))
+            dispatch_after(delay, dispatch_get_main_queue(), { () -> Void in
+                self.performSegueWithIdentifier("showKeyViewControllerSegue", sender: self)
+            })
+        }
     }
     
     func didResetKeyInfo() {

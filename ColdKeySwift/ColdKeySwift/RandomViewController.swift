@@ -21,7 +21,6 @@ class RandomViewController: ColdKeyViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func pressStartOver(sender: AnyObject) {
         UIAlertView(type: .StartOver, delegate: self).show()
     }

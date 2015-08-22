@@ -28,6 +28,12 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
             selector: "keyboardWillHideNotification:",
             name: UIKeyboardWillHideNotification,
             object: nil)
+        self.mnemonicView.text = ""
+        self.mnemonicView.becomeFirstResponder()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -45,14 +51,14 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
     
     @IBAction func recoverPrivateKey(sender: AnyObject) {
         KeyInfoManager.sharedManager.delegate = self
-        var words = KeyInfoManager.mnemonicArray(mnemonicView.text)
+        var words = KeyInfoManager.mnemonicArray(mnemonicView.text.lowercaseString)
         if let wordArray = words {
             if wordArray.count > 12 {
                 UIAlertView(type: .TooLong, delegate: self).show()
             } else if wordArray.count < 12 {
                 UIAlertView(type: .TooShort, delegate: self).show()
             } else if self.isValid(wordArray) {
-                KeyInfoManager.sharedManager.generate(mnemonic: mnemonicView.text)
+                KeyInfoManager.sharedManager.generate(mnemonic: mnemonicView.text.lowercaseString)
             }
         }
         return
@@ -77,10 +83,11 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
     // MARK: - TextViewDelegate
     
     func textViewDidChange(textView: UITextView) {
-        var words = KeyInfoManager.mnemonicArray(textView.text)
-        if words != nil {
-            if self.isValid(words!) {
-                self.mnemonicView.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0)
+        if let words = KeyInfoManager.mnemonicArray(textView.text.lowercaseString) {
+            if self.isValid(words) {
+                self.mnemonicView.borderColor = BitGoGreenColor
+            } else if self.isValidPartial(words) {
+                self.mnemonicView.borderColor = BitGoGreenColor
             } else {
                 mnemonicView.borderColor = UIColor.redColor()
             }
@@ -92,19 +99,39 @@ class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITe
         shouldChangeTextInRange range: NSRange,
         replacementText text: String) -> Bool {
             if text == "\n" {
-                textView.resignFirstResponder()
+                if let words = KeyInfoManager.mnemonicArray(textView.text.lowercaseString) where self.isValid(words) {
+                    KeyInfoManager.sharedManager.delegate = self
+                    KeyInfoManager.sharedManager.generate(mnemonic: mnemonicView.text.lowercaseString)
+                } else {
+                    textView.resignFirstResponder()
+                }
                 return false
             }
             return true
     }
     
     private func isValid(words: [String]) -> Bool {
-        for word in words {
+        for (index, word) in enumerate(words) {
             if !contains(KeyInfoManager.wordList, word) {
                 return false
             }
         }
         return true
+    }
+    
+    private func isValidPartial(words: [String]) -> Bool {
+        let len = words.count
+        for i in 0..<len - 1 {
+            if !contains(KeyInfoManager.wordList, words[i]) {
+                return false
+            }
+        }
+        for word in KeyInfoManager.wordList {
+            if word.hasPrefix(words[len - 1]) {
+                return true
+            }
+        }
+        return false
     }
     
     // MARK: - UIAlertViewDelegate Protocol

@@ -9,6 +9,9 @@
 import UIKit
 import Alamofire
 
+public let BitGoBlueColor: UIColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0)
+public let BitGoGreenColor: UIColor = UIColor(red: 60.0/256.0, green: 188.0/256.0, blue: 86.0/256.0, alpha: 1.0)
+
 protocol KeyInfoManagerDelegate {
     func didGenerateKeyInfo()
     func didResetKeyInfo()
@@ -35,7 +38,6 @@ class KeyInfoManager: NSObject {
     private(set) var privateKeyQRCode: UIImage?
     
     static let qrCodeVersion = 1
-    static let URLString = "https://webdev.bitgo.com/api/v1/coldkey"
     
     var signingKey: NSString?
     var baseUrl: KeyInfoBaseUrl = .Dev
@@ -155,7 +157,7 @@ class KeyInfoManager: NSObject {
     }
     
     class func safeMnemonicString(string mnString: String?) -> String? {
-        if let mn = mnString {
+        if let mn = mnString?.lowercaseString {
             if let
                 regEx = NSRegularExpression(
                     pattern: "[ ]+",

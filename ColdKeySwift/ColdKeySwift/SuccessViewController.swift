@@ -12,8 +12,30 @@ class SuccessViewController: ColdKeyViewController, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        noScreenshot = false
     }
 
+    @IBAction func sharePublicKey(sender: AnyObject) {
+        let xpub = KeyInfoManager.sharedManager.keyInfo.publicKey as String
+        var items = [AnyObject]()
+        let message = SharingActivity.GenerateXPub(xpub: xpub).shareMessage
+        items.append(message)
+        if let qrcode = KeyInfoManager.sharedManager.publicKeyQRCode {
+            items.append(qrcode)
+        }
+        var activityViewController = UIActivityViewController(
+            activityItems: items,
+            applicationActivities: nil)
+        if let popoverPresentationController = activityViewController.popoverPresentationController {
+            // iOS8 iPads
+            popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem
+        }
+        self.navigationController?.presentViewController(activityViewController,
+            animated: true) { () -> Void in
+                println("presented activities")
+        }
+    }
+    
     @IBAction func showKey(sender: AnyObject) {
         self.performSegueWithIdentifier(
             "showQRCodeViewControllerSegue",

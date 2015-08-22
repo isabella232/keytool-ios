@@ -15,17 +15,18 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet var noVideoCamLabel: UILabel!
+    @IBOutlet var instructionLabel: UILabel!
     
     override func viewDidLoad() {
         self.hidesBackButton = false
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.noVideoCamLabel.hidden = true
+        self.instructionLabel.hidden = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -35,6 +36,7 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
         
         if videoDeivces.count > 0 {
             self.noVideoCamLabel.hidden = true
+            self.instructionLabel.hidden = false
             let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
             let input: AnyObject! = AVCaptureDeviceInput.deviceInputWithDevice(device, error: nil)
             let output = AVCaptureMetadataOutput()
@@ -57,6 +59,7 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
             }
         } else {
             self.noVideoCamLabel.hidden = false
+            self.instructionLabel.hidden = true
         }
     }
     

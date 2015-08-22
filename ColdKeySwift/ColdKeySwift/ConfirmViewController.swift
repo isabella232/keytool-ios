@@ -30,6 +30,11 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
             selector: "keyboardWillHideNotification:",
             name: UIKeyboardWillHideNotification,
             object: nil)
+        self.mnemonicView.becomeFirstResponder()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -43,8 +48,8 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
     }
     
     @IBAction func pressStartOver(sender: AnyObject) {
-        self.mnemonicView.resignFirstResponder()
         UIAlertView(type: .StartOver, delegate: self).show()
+        self.mnemonicView.becomeFirstResponder()
     }
     
     @IBAction func confirmKey(sender: AnyObject) {
@@ -58,9 +63,9 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
         
         ///////
         
-        if self.mnemonicView.text != KeyInfoManager.sharedManager.keyInfo.mnemonicString() {
+        if self.mnemonicView.text.lowercaseString != KeyInfoManager.sharedManager.keyInfo.mnemonicString() {
             self.mnemonicView.borderColor = UIColor.redColor()
-            UIAlertView(type: .IncorrectSeed, delegate: self).show()
+            UIAlertView(type: .IncorrectPhrase, delegate: self).show()
             return
         }
         self.performSegueWithIdentifier("showSuccessViewControllerSegue", sender: self)
@@ -72,8 +77,16 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
     
     func textViewDidChange(textView: UITextView) {
         var mnString = KeyInfoManager.sharedManager.keyInfo.mnemonicString()
-        if mnString.hasPrefix(textView.text) {
-            self.mnemonicView.borderColor = UIColor(red: 9.0/256.0, green: 161.0/256.0, blue: 217.0/256.0, alpha: 1.0)
+        
+        // #warning: For debug only, should not be in production version
+        
+        if textView.text == "!" {
+            self.mnemonicView.borderColor = BitGoGreenColor
+            return
+        }
+        
+        if mnString.hasPrefix(textView.text.lowercaseString) {
+            self.mnemonicView.borderColor = BitGoGreenColor
         } else {
             textView.layer.borderColor = UIColor.redColor().CGColor
         }
@@ -85,7 +98,11 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
         replacementText text: String) -> Bool
     {
         if text == "\n" {
-            textView.resignFirstResponder()
+            if textView.text == KeyInfoManager.sharedManager.keyInfo.mnemonicString()  {
+                self.performSegueWithIdentifier("showSuccessViewControllerSegue", sender: self)
+            } else {
+                textView.resignFirstResponder()
+            }
             return false
         }
         return true
@@ -98,15 +115,17 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
             if buttonIndex == 1 {
                 
                 // a hack to prevent keyboard glitch, which happens after this VC is dismissed
-                var delay = dispatch_time(DISPATCH_TIME_NOW, Int64(200 * Double(NSEC_PER_MSEC)))
+                var delay = dispatch_time(DISPATCH_TIME_NOW, Int64(500 * Double(NSEC_PER_MSEC)))
                 dispatch_after(delay, dispatch_get_main_queue(), { () -> Void in
                     self.performSegueWithIdentifier(
                         "backToRootViewControllerFromConfirmSegue",
                         sender: self
                     )
                 })
+            } else {
+                self.mnemonicView.becomeFirstResponder()
             }
-        } else if alertView.title == AlertTitle.IncorrectSeed.rawValue {
+        } else if alertView.title == AlertTitle.IncorrectPhrase.rawValue {
             self.mnemonicView.becomeFirstResponder()
         } else {
             super.alertView(alertView, clickedButtonAtIndex: buttonIndex)
@@ -133,7 +152,7 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
         let convertedKeyboardEndFrame = view.convertRect(keyboardEndFrame, fromView: view.window)
         let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).unsignedIntValue << 16
         let animationCurve = UIViewAnimationOptions(rawValue: UInt(rawAnimationCurve))
-        bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame)
+        bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame) + 20
         
         UIView.animateWithDuration(animationDuration, delay: 0.0, options: .BeginFromCurrentState | animationCurve, animations: {
             self.view.layoutIfNeeded()
