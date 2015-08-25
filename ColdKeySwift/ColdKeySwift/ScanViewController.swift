@@ -121,6 +121,11 @@ class ScanViewController: ColdKeyViewController, AVCaptureMetadataOutputObjectsD
         alertView: UIAlertView,
         clickedButtonAtIndex buttonIndex: Int)
     {
-        self.performSegueWithIdentifier("backFromScanViewControllerSegue", sender: self)
+        if alertView.title == AlertTitle.PairingFailed.rawValue
+        || alertView.title == AlertTitle.PairingSucceeded.rawValue {
+            self.performSegueWithIdentifier("backFromScanViewControllerSegue", sender: self)
+        } else {
+            super.alertView(alertView, clickedButtonAtIndex: buttonIndex)
+        }
     }
 }

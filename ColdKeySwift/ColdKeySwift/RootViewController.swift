@@ -59,7 +59,7 @@ class RootViewController: ColdKeyViewController, KeyInfoManagerDelegate {
     // Mark: - KeyInfoManagerDelegate 
     
     func didGenerateKeyInfo() {
-        var msecs: UInt64 = 1000
+        var msecs: UInt64 = 500
         var delay = dispatch_time(DISPATCH_TIME_NOW, Int64(msecs * NSEC_PER_MSEC))
         dispatch_after(delay, dispatch_get_main_queue()) { () -> Void in
             self.activityLabel.text = "Generating key..."

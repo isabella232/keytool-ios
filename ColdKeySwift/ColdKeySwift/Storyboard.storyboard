@@ -31,16 +31,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BitGo KeyTool helps you generate BIP32 Bitcoin keys for any multi-sig Bitcoin wallets. Let's get started!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Nco-Zs-ZJy">
-                                <rect key="frame" x="39" y="240" width="537" height="96"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" placeholder="YES" id="Vuq-zd-edg"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="96" id="lfh-Gu-loI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbE-d6-Bf1">
                                 <rect key="frame" x="16" y="467" width="568" height="49"/>
                                 <constraints>
@@ -80,7 +70,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keytool" translatesAutoresizingMaskIntoConstraints="NO" id="heP-yX-WRN">
-                                <rect key="frame" x="108" y="60" width="385" height="157"/>
+                                <rect key="frame" x="44" y="60" width="512" height="157"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="224" id="et4-eh-e3Q"/>
                                 </constraints>
@@ -95,6 +85,35 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Nco-Zs-ZJy">
+                                <rect key="frame" x="177.5" y="240" width="245.5" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" placeholder="YES" id="Vuq-zd-edg"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="96" id="lfh-Gu-loI"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">BitGo KeyTool helps you generate 
+BIP32 keys for any Bitcoin wallet. 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Let's get started!</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -102,20 +121,20 @@
                             <constraint firstItem="TbE-d6-Bf1" firstAttribute="top" secondItem="idm-d4-BNF" secondAttribute="bottom" constant="8" id="3GH-Ae-ONp"/>
                             <constraint firstItem="heP-yX-WRN" firstAttribute="top" secondItem="FmN-xG-GO1" secondAttribute="bottom" constant="60" id="6L2-Yx-YcJ"/>
                             <constraint firstAttribute="centerX" secondItem="heP-yX-WRN" secondAttribute="centerX" id="8XB-Q3-W2V"/>
-                            <constraint firstItem="Nco-Zs-ZJy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BaV-1Y-pbJ" secondAttribute="leadingMargin" constant="8" id="8j3-qv-7GM"/>
                             <constraint firstAttribute="centerX" secondItem="0YN-ZP-y4R" secondAttribute="centerX" id="9qc-hq-bMs"/>
+                            <constraint firstItem="Nco-Zs-ZJy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BaV-1Y-pbJ" secondAttribute="leadingMargin" constant="8" id="Dxb-Xn-t6D"/>
                             <constraint firstAttribute="centerY" secondItem="0YN-ZP-y4R" secondAttribute="centerY" id="H0E-64-Z26"/>
-                            <constraint firstAttribute="centerX" secondItem="Nco-Zs-ZJy" secondAttribute="centerX" constant="-7.5" id="V0Y-q8-dOi"/>
+                            <constraint firstItem="Nco-Zs-ZJy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="idm-d4-BNF" secondAttribute="leading" constant="8" id="TAM-ZQ-N2O"/>
+                            <constraint firstAttribute="centerX" secondItem="Nco-Zs-ZJy" secondAttribute="centerX" id="V0Y-q8-dOi"/>
                             <constraint firstItem="LCB-Aq-2Qs" firstAttribute="top" secondItem="TbE-d6-Bf1" secondAttribute="bottom" constant="20" id="Z5O-lT-rrz"/>
                             <constraint firstItem="9Fl-bg-5QH" firstAttribute="leading" secondItem="BaV-1Y-pbJ" secondAttribute="leadingMargin" id="ZEL-X5-DJl"/>
-                            <constraint firstItem="idm-d4-BNF" firstAttribute="leading" secondItem="Nco-Zs-ZJy" secondAttribute="leading" constant="-23" id="a8N-50-SPl"/>
                             <constraint firstItem="TbE-d6-Bf1" firstAttribute="trailing" secondItem="BaV-1Y-pbJ" secondAttribute="trailingMargin" id="dKH-yY-scr"/>
                             <constraint firstItem="TbE-d6-Bf1" firstAttribute="leading" secondItem="BaV-1Y-pbJ" secondAttribute="leadingMargin" id="few-Bn-9eT"/>
                             <constraint firstItem="9Fl-bg-5QH" firstAttribute="top" secondItem="0YN-ZP-y4R" secondAttribute="bottom" constant="8" id="g2A-3a-Y3O"/>
                             <constraint firstItem="0YN-ZP-y4R" firstAttribute="top" secondItem="heP-yX-WRN" secondAttribute="bottom" constant="32" id="jHH-tk-TTn"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Nco-Zs-ZJy" secondAttribute="trailing" constant="8" id="kOk-f8-D9n"/>
                             <constraint firstItem="idm-d4-BNF" firstAttribute="leading" secondItem="BaV-1Y-pbJ" secondAttribute="leadingMargin" priority="750" id="l3t-BP-UkG"/>
                             <constraint firstAttribute="centerY" secondItem="Nco-Zs-ZJy" secondAttribute="centerY" constant="-20" id="qsy-Qy-HqY"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Nco-Zs-ZJy" secondAttribute="trailing" constant="8" id="tNS-nk-QMt"/>
                             <constraint firstItem="idm-d4-BNF" firstAttribute="trailing" secondItem="BaV-1Y-pbJ" secondAttribute="trailingMargin" priority="750" id="uAZ-Cw-9JL"/>
                             <constraint firstItem="9Fl-bg-5QH" firstAttribute="trailing" secondItem="BaV-1Y-pbJ" secondAttribute="trailingMargin" id="uZa-Pi-ZJ9"/>
                             <constraint firstItem="idm-d4-BNF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Nco-Zs-ZJy" secondAttribute="bottom" constant="8" id="urf-ZT-1xZ"/>
@@ -714,7 +733,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan the key pairing QR-code provided by BitGo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H09-VX-1Jh">
-                                        <rect key="frame" x="90" y="50" width="388" height="50"/>
+                                        <rect key="frame" x="90.5" y="50" width="387.5" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="vCI-dO-Otf"/>
@@ -800,8 +819,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="xpubaskdfau10938h983hkr9a823ral2893rgaoa87g38w73gakwugkwygkauysekda" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhY-1D-jfz">
-                                <rect key="frame" x="86" y="490" width="430" height="26"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="xpubaskdfau10938h983hkr9a823ral2893rgaoa87g38w73gakwugkwygkauysekda" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhY-1D-jfz">
+                                <rect key="frame" x="85" y="490" width="430" height="26"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -968,9 +987,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="keytool" width="385" height="192"/>
+        <image name="keytool" width="512" height="242"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GKC-4j-4gc"/>
+        <segue reference="4fL-3k-Y44"/>
     </inferredMetricsTieBreakers>
 </document>

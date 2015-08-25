@@ -53,16 +53,7 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
     }
     
     @IBAction func confirmKey(sender: AnyObject) {
-        
-        ///////should only exists in debug version
-        
-        if self.mnemonicView.text == "!" {
-            self.performSegueWithIdentifier("showSuccessViewControllerSegue", sender: self)
-            return
-        }
-        
-        ///////
-        
+       
         if self.mnemonicView.text.lowercaseString != KeyInfoManager.sharedManager.keyInfo.mnemonicString() {
             self.mnemonicView.borderColor = UIColor.redColor()
             UIAlertView(type: .IncorrectPhrase, delegate: self).show()
@@ -77,13 +68,6 @@ class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertV
     
     func textViewDidChange(textView: UITextView) {
         var mnString = KeyInfoManager.sharedManager.keyInfo.mnemonicString()
-        
-        // #warning: For debug only, should not be in production version
-        
-        if textView.text == "!" {
-            self.mnemonicView.borderColor = BitGoGreenColor
-            return
-        }
         
         if mnString.hasPrefix(textView.text.lowercaseString) {
             self.mnemonicView.borderColor = BitGoGreenColor
