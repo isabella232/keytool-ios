@@ -1,6 +1,6 @@
 //
 //  ConfirmViewController.swift
-//  ColdKey
+//  KeyTool
 //
 //  Created by Huang Yu on 7/29/15.
 //  Copyright (c) 2015 Huang Yu. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmViewController: ColdKeyViewController, UITextViewDelegate, UIAlertViewDelegate {
+class ConfirmViewController: KeyToolViewController, UITextViewDelegate, UIAlertViewDelegate {
     
     @IBOutlet var mnemonicView: BitGoTextView!
     @IBOutlet var bottomLayoutConstraint: NSLayoutConstraint!

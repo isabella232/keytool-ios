@@ -9,7 +9,7 @@
         <!--Root View Controller-->
         <scene sceneID="hUc-na-gL4">
             <objects>
-                <viewController id="Igf-oJ-NMf" customClass="RootViewController" customModule="ColdKeySwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Igf-oJ-NMf" customClass="RootViewController" customModule="KeyTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FmN-xG-GO1"/>
                         <viewControllerLayoutGuide type="bottom" id="LCB-Aq-2Qs"/>
@@ -167,93 +167,10 @@ Let's get started!</string>
             </objects>
             <point key="canvasLocation" x="1160" y="380"/>
         </scene>
-        <!--Random View Controller-->
-        <scene sceneID="dea-Pf-EYA">
-            <objects>
-                <viewController id="sFK-xI-KlF" customClass="RandomViewController" customModule="ColdKeySwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="o8c-fe-TcJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Q59-wP-dWp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JKF-t8-1Fm">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAf-9T-RcS">
-                                <rect key="frame" x="16" y="535" width="568" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="dPg-hx-Nrb"/>
-                                </constraints>
-                                <state key="normal" title="Start Over">
-                                    <color key="titleColor" red="0.035294117649999998" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pressStartOver:" destination="sFK-xI-KlF" eventType="touchUpInside" id="ZVc-rA-SEZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqN-sD-vak">
-                                <rect key="frame" x="16" y="478" width="568" height="49"/>
-                                <color key="backgroundColor" red="0.035294117649999998" green="0.63137254899999995" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="2WD-uO-HAm"/>
-                                </constraints>
-                                <state key="normal" title="Show Key Phrase">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex5-KX-PLo">
-                                <rect key="frame" x="16" y="120" width="568" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="VWH-Xp-4fU"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Important">
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=": You will be required at the next step to write down your seed phrase. Be sure to have pen and paper handy">
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="18" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xAf-9T-RcS" firstAttribute="trailing" secondItem="JKF-t8-1Fm" secondAttribute="trailingMargin" id="0Za-nf-cPD"/>
-                            <constraint firstItem="Ex5-KX-PLo" firstAttribute="leading" secondItem="JKF-t8-1Fm" secondAttribute="leadingMargin" id="5fi-1O-bnL"/>
-                            <constraint firstItem="dqN-sD-vak" firstAttribute="trailing" secondItem="JKF-t8-1Fm" secondAttribute="trailingMargin" id="7pZ-fk-fea"/>
-                            <constraint firstItem="Q59-wP-dWp" firstAttribute="top" secondItem="xAf-9T-RcS" secondAttribute="bottom" constant="20" id="HDq-V7-kWM"/>
-                            <constraint firstItem="xAf-9T-RcS" firstAttribute="leading" secondItem="JKF-t8-1Fm" secondAttribute="leadingMargin" id="Hw3-eF-p84"/>
-                            <constraint firstItem="Ex5-KX-PLo" firstAttribute="trailing" secondItem="JKF-t8-1Fm" secondAttribute="trailingMargin" id="IRa-J5-2jQ"/>
-                            <constraint firstItem="dqN-sD-vak" firstAttribute="leading" secondItem="JKF-t8-1Fm" secondAttribute="leadingMargin" id="OeO-Tz-RQM"/>
-                            <constraint firstItem="Ex5-KX-PLo" firstAttribute="top" secondItem="o8c-fe-TcJ" secondAttribute="bottom" priority="750" constant="120" id="vW6-ng-fNc"/>
-                            <constraint firstItem="xAf-9T-RcS" firstAttribute="top" secondItem="dqN-sD-vak" secondAttribute="bottom" constant="8" id="xBA-Xr-qFw"/>
-                            <constraint firstItem="dqN-sD-vak" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ex5-KX-PLo" secondAttribute="bottom" constant="120" id="zcT-8h-TSX"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="2le-1r-wbf" kind="unwind" identifier="backToRootViewControllerFromRandomSegue" unwindAction="startOver:" id="lN3-Rn-iug"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gqi-DK-gAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="2le-1r-wbf" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2157" y="-735"/>
-        </scene>
         <!--Key View Controller-->
         <scene sceneID="Uej-io-0p3">
             <objects>
-                <viewController id="hGo-kh-mBz" customClass="KeyViewController" customModule="ColdKeySwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hGo-kh-mBz" customClass="KeyViewController" customModule="KeyTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="em3-C8-4ez"/>
                         <viewControllerLayoutGuide type="bottom" id="W5L-ib-fck"/>
@@ -285,7 +202,7 @@ Let's get started!</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="predict behave middle region van hybrid night rail wise comic film eye" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-pK-8hV" customClass="BitGoTextView" customModule="ColdKeySwift" customModuleProvider="target">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="predict behave middle region van hybrid night rail wise comic film eye" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-pK-8hV" customClass="BitGoTextView" customModule="KeyTool" customModuleProvider="target">
                                 <rect key="frame" x="16" y="65" width="568" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" placeholder="YES" id="V4p-5Q-gXB"/>
@@ -383,7 +300,7 @@ Let's get started!</string>
         <!--Confirm View Controller-->
         <scene sceneID="le8-M9-n9S">
             <objects>
-                <viewController id="TUk-Gp-UiT" customClass="ConfirmViewController" customModule="ColdKeySwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TUk-Gp-UiT" customClass="ConfirmViewController" customModule="KeyTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0MI-1Y-Xeb"/>
                         <viewControllerLayoutGuide type="bottom" id="PPE-SN-TOP"/>
@@ -425,7 +342,7 @@ Let's get started!</string>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-9D-ABi" customClass="BitGoTextView" customModule="ColdKeySwift" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-9D-ABi" customClass="BitGoTextView" customModule="KeyTool" customModuleProvider="target">
                                 <rect key="frame" x="16" y="65" width="568" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" placeholder="YES" id="3FP-aP-b6Z"/>
@@ -512,7 +429,7 @@ Let's get started!</string>
         <!--Success View Controller-->
         <scene sceneID="pat-at-zCp">
             <objects>
-                <viewController id="PBa-1Q-a8h" customClass="SuccessViewController" customModule="ColdKeySwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PBa-1Q-a8h" customClass="SuccessViewController" customModule="KeyTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ha6-wM-3sc"/>
                         <viewControllerLayoutGuide type="bottom" id="Xgr-cl-mOH"/>
@@ -711,7 +628,7 @@ Let's get started!</string>
         <!--Scan View Controller-->
         <scene sceneID="L4S-O4-7Qh">
             <objects>
-                <viewController id="TM4-N2-NBY" customClass="ScanViewController" customModule="ColdKeySwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TM4-N2-NBY" customClass="ScanViewController" customModule="KeyTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bqw-Gf-5GY"/>
                         <viewControllerLayoutGuide type="bottom" id="HnM-J0-1J4"/>
@@ -783,7 +700,7 @@ Let's get started!</string>
         <!--Code View Controller-->
         <scene sceneID="jnv-Ic-Rmg">
             <objects>
-                <viewController id="YMV-eX-Vnd" customClass="QRCodeViewController" customModule="ColdKeySwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YMV-eX-Vnd" customClass="QRCodeViewController" customModule="KeyTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dST-PJ-zwx"/>
                         <viewControllerLayoutGuide type="bottom" id="qVg-Hc-4ih"/>
@@ -884,7 +801,7 @@ Let's get started!</string>
         <!--Recover View Controller-->
         <scene sceneID="MWx-1c-gIY">
             <objects>
-                <viewController id="2uO-TT-7uD" customClass="RecoverViewController" customModule="ColdKeySwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2uO-TT-7uD" customClass="RecoverViewController" customModule="KeyTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z6E-7a-RI5"/>
                         <viewControllerLayoutGuide type="bottom" id="NZ4-w9-n43"/>
@@ -919,7 +836,7 @@ Let's get started!</string>
                                     <action selector="recoverPrivateKey:" destination="2uO-TT-7uD" eventType="touchUpInside" id="caz-rD-wR4"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afW-dF-PCX" customClass="BitGoTextView" customModule="ColdKeySwift" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afW-dF-PCX" customClass="BitGoTextView" customModule="KeyTool" customModuleProvider="target">
                                 <rect key="frame" x="16" y="65" width="568" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="132" id="63D-46-RG8"/>

@@ -1,6 +1,6 @@
 //
-//  ColdKeyViewController.swift
-//  ColdKeySwift
+//  KeyToolViewController.swift
+//  KeyToolSwift
 //
 //  Created by Huang Yu on 8/3/15.
 //  Copyright (c) 2015 BitGo, Inc. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColdKeyViewController: UIViewController, UIAlertViewDelegate {
+class KeyToolViewController: UIViewController, UIAlertViewDelegate {
     
     var hasBackButton: Bool = true
     var hidesBackButton: Bool = true

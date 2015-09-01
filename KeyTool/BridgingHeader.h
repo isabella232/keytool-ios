@@ -1,13 +1,13 @@
 //
 //  BridgingHeader.h
-//  ColdKeySwift
+//  KeyToolSwift
 //
 //  Created by Huang Yu on 7/29/15.
 //  Copyright (c) 2015 BitGo, Inc. All rights reserved.
 //
 
-#ifndef ColdKeySwift_BridgingHeader_h
-#define ColdKeySwift_BridgingHeader_h
+#ifndef KeyToolSwift_BridgingHeader_h
+#define KeyToolSwift_BridgingHeader_h
 
 #import <CoreBitcoin/BTCData.h>
 #import <CoreBitcoin/BTCKeychain.h>

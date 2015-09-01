@@ -1,6 +1,6 @@
 //
 //  SuccessViewController.swift
-//  ColdKeySwift
+//  KeyToolSwift
 //
 //  Created by Huang Yu on 7/29/15.
 //  Copyright (c) 2015 BitGo, Inc. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuccessViewController: ColdKeyViewController, UIAlertViewDelegate {
+class SuccessViewController: KeyToolViewController, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()

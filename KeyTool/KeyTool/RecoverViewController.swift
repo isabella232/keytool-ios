@@ -1,6 +1,6 @@
 //
 //  RecoverViewController.swift
-//  ColdKeySwift
+//  KeyToolSwift
 //
 //  Created by Huang Yu on 8/3/15.
 //  Copyright (c) 2015 BitGo, Inc. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class RecoverViewController: ColdKeyViewController, KeyInfoManagerDelegate, UITextViewDelegate, UIAlertViewDelegate {
+class RecoverViewController: KeyToolViewController, KeyInfoManagerDelegate, UITextViewDelegate, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         self.hidesBackButton = false

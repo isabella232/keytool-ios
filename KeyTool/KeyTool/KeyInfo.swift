@@ -1,6 +1,6 @@
 //
 //  KeyInfo.swift
-//  ColdKey
+//  KeyTool
 //
 //  Created by Huang Yu on 7/29/15.
 //  Copyright (c) 2015 Huang Yu. All rights reserved.
