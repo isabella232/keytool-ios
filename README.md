@@ -2,7 +2,7 @@
 
 BitGo's KeyTool app makes it simple to generate BIP32 keys for any Bitcoin wallet. KeyTool also provides a seamless way to pair the key with your BitGo wallet.
 
-Features:
+##Features:
 
 - user friendly step-by-step instructions
 - generate BIP32 keys in a secure way
