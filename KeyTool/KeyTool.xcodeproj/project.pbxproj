@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5630C6311B964A91001CA65D /* ColdKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630C6281B964A91001CA65D /* ColdKeyViewController.swift */; };
+		5630C6311B964A91001CA65D /* KeyToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630C6281B964A91001CA65D /* KeyToolViewController.swift */; };
 		5630C6321B964A91001CA65D /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630C6291B964A91001CA65D /* ConfirmViewController.swift */; };
 		5630C6331B964A91001CA65D /* KeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630C62A1B964A91001CA65D /* KeyViewController.swift */; };
 		5630C6341B964A91001CA65D /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630C62B1B964A91001CA65D /* QRCodeViewController.swift */; };
@@ -143,7 +143,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5630C6281B964A91001CA65D /* ColdKeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ColdKeyViewController.swift; path = KeyTool/ColdKeyViewController.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		5630C6281B964A91001CA65D /* KeyToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = KeyToolViewController.swift; path = KeyTool/KeyToolViewController.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5630C6291B964A91001CA65D /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ConfirmViewController.swift; path = KeyTool/ConfirmViewController.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5630C62A1B964A91001CA65D /* KeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = KeyViewController.swift; path = KeyTool/KeyViewController.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5630C62B1B964A91001CA65D /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = QRCodeViewController.swift; path = KeyTool/QRCodeViewController.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -289,7 +289,7 @@
 		569FAAAE1B706D9300F5AAC3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5630C6281B964A91001CA65D /* ColdKeyViewController.swift */,
+				5630C6281B964A91001CA65D /* KeyToolViewController.swift */,
 				5630C6291B964A91001CA65D /* ConfirmViewController.swift */,
 				5630C62A1B964A91001CA65D /* KeyViewController.swift */,
 				5630C62B1B964A91001CA65D /* QRCodeViewController.swift */,
@@ -504,7 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5630C6311B964A91001CA65D /* ColdKeyViewController.swift in Sources */,
+				5630C6311B964A91001CA65D /* KeyToolViewController.swift in Sources */,
 				5630C64D1B964CB7001CA65D /* AlertManager.swift in Sources */,
 				5630C6321B964A91001CA65D /* ConfirmViewController.swift in Sources */,
 				5630C6531B964CB7001CA65D /* KeyInfoManager.swift in Sources */,

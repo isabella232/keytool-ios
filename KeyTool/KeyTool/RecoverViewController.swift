@@ -1,6 +1,6 @@
 //
 //  RecoverViewController.swift
-//  KeyToolSwift
+//  KeyTool
 //
 //  Created by Huang Yu on 8/3/15.
 //  Copyright (c) 2015 BitGo, Inc. All rights reserved.

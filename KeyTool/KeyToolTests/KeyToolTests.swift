@@ -1,6 +1,6 @@
 //
-//  KeyToolSwiftTests.swift
-//  KeyToolSwiftTests
+//  KeyToolTests.swift
+//  KeyToolTests
 //
 //  Created by Huang Yu on 7/29/15.
 //  Copyright (c) 2015 BitGo, Inc. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class KeyToolSwiftTests: XCTestCase {
+class KeyToolTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
